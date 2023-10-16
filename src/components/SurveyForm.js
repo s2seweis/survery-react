@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 
+import { useDispatch } from "react-redux";
+import { addData } from '../redux/actions/actions';
+import { firestore } from '../services/firebase';
+
+import { collection, addDoc } from 'firebase/firestore';
+
 const SurveyForm = () => {
   const [surveyResult, setSurveyResult] = useState(null);
   console.log("line:1", surveyResult);
+
+  const dispatch = useDispatch();
 
   const surveyJSON = {
     title: 'Sample Survey',
@@ -47,11 +55,39 @@ const SurveyForm = () => {
           },
         ],
       },
+      
+      
     ],
   };
 
-  const onCompleteSurvey = (survey) => {
-    setSurveyResult(survey.data);
+  const onCompleteSurvey = async (survey) => {
+    const surveyData = survey.data;
+    setSurveyResult(surveyData);
+  
+  
+
+    const dataToAdd = {
+      // Your data fields here
+      field1: 'value1',
+      field2: 'value2',
+      // ...
+    };
+
+    try {
+      // Add data to Firestore
+      const docRef = await addDoc(collection(firestore, 'survey'), dataToAdd);
+
+      // Dispatch the action to add data to Redux store
+      dispatch(addData({ id: docRef.id, ...dataToAdd }));
+      
+      console.log('Document written with ID: ', docRef.id);
+    } catch (error) {
+      console.error('Error adding document: ', error);
+    }
+
+
+
+
   };
 
   return (
