@@ -62,6 +62,7 @@ const SurveyForm = () => {
 
   const onCompleteSurvey = async (survey) => {
     const surveyData = survey.data;
+    console.log("line:3", surveyData);
     setSurveyResult(surveyData);
   
   
@@ -75,10 +76,11 @@ const SurveyForm = () => {
 
     try {
       // Add data to Firestore
-      const docRef = await addDoc(collection(firestore, 'survey'), dataToAdd);
+      const docRef = await addDoc(collection(firestore, 'survey'), surveyData);
 
       // Dispatch the action to add data to Redux store
-      dispatch(addData({ id: docRef.id, ...dataToAdd }));
+      dispatch(addData({ id: docRef.id, ...surveyData }));
+      // dispatch(addData({ id: docRef.id, ...dataToAdd }));
       
       console.log('Document written with ID: ', docRef.id);
     } catch (error) {
@@ -97,7 +99,7 @@ const SurveyForm = () => {
       {surveyResult && (
         <div className="survey-results">
           <h3>Survey Results:</h3>
-          <pre>{JSON.stringify(surveyResult, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(surveyResult, null, 2)}</pre> */}
         </div>
       )}
     </div>

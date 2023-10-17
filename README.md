@@ -17,13 +17,6 @@ This project is a simple survey application built using React for the front-end 
   - **Cloud Firestore:** A NoSQL database to store survey data.
 - **SurveyJS:** A JavaScript survey library for building interactive surveys and forms.
 
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- Node.js and npm installed on your machine.
-- Firebase project set up with authentication and Cloud Firestore enabled.
-
 ## Getting Started
 
 1. Clone the repository:
@@ -81,3 +74,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Happy surveying! 📝✨
+
+## Coming: 
+1. Add Admin & User Routes 
+2. Admin Area 
+3. Area for Chart.js
+4. Auth
+5. Summary for the Survey/User

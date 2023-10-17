@@ -2,13 +2,14 @@
 import './App.css';
 import React from "react";
 
-import SurveyForm from './components/SurveyForm';
+
+import AppRouter from './AppRouter';
 
 function App () {
   return (
     <div className="App">
 
-      <SurveyForm />
+      <AppRouter />
 
     </div>
   );
