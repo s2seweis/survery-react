@@ -19,45 +19,6 @@ This project is a simple survey application built using React for the front-end 
 
 ## Getting Started
 
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   cd survey-app
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Set up Firebase:
-   - Create a Firebase project on the Firebase Console.
-   - Set up Firebase Authentication and configure the sign-in methods.
-   - Enable Cloud Firestore for the project.
-
-4. Configure Firebase:
-   - Create a `.env` file in the root directory of the project.
-   - Add your Firebase configuration to the `.env` file:
-
-     ```env
-     REACT_APP_FIREBASE_API_KEY=<your-api-key>
-     REACT_APP_FIREBASE_AUTH_DOMAIN=<your-auth-domain>
-     REACT_APP_FIREBASE_PROJECT_ID=<your-project-id>
-     REACT_APP_FIREBASE_STORAGE_BUCKET=<your-storage-bucket>
-     REACT_APP_FIREBASE_MESSAGING_SENDER_ID=<your-messaging-sender-id>
-     REACT_APP_FIREBASE_APP_ID=<your-app-id>
-     ```
-
-5. Start the development server:
-
-   ```bash
-   npm start
-   ```
-
-6. Access the application at `http://localhost:3000`.
-
 Happy surveying! 📝✨
 
 ## Coming: 

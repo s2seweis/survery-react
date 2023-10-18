@@ -10,6 +10,7 @@ const initialQuestions = [
 
 const Form = () => {
   const [questions, setQuestions] = useState(initialQuestions);
+  console.log("line:100", questions);
 
   const onDragEnd = (result) => {
     if (!result.destination) return; // Drop outside the list

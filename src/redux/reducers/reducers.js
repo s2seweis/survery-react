@@ -8,7 +8,7 @@ import {
 } from '../actions/actions';
 
 const initialState = {
-  data: [],
+  objects: [],
 };
 
 const rootReducer1 = (state = initialState, action) => {
@@ -16,7 +16,8 @@ const rootReducer1 = (state = initialState, action) => {
     case ADD_DATA:
       return {
         ...state,
-        data: [...state.data, action.payload],
+        // data: [...state.data, action.payload],
+        objects: [...state.objects, action.payload],
       };
 
     case UPDATE_OBJECT:

@@ -44,44 +44,50 @@ const SurveyOverview = () => {
   return (
     <div>
 
-      <ul style={{display: 'flex', justifyContent: 'center'}}>
-        {objects?.map (object => (
-          <div
-            style={{
-              backgroundColor: 'red',
-              padding: '20px',
-              width: '250px',
-              margin: '15px 15px',
-            }}
-            key={object.id}
-          >
-            {object.name}
-            <br />
-            {/* {object.id} */}
-            <button
-              style={{marginTop: '15px'}}
-              onClick={() => handleDeleteObject (object.id)}
+      <h3>All Taken Surveys:</h3>
+
+      <div>
+
+        <ul style={{display: '', justifyContent: 'center'}}>
+          {objects?.map (object => (
+            <div
+              style={{
+                backgroundColor: 'red',
+                padding: '20px',
+                width: '250px',
+                margin: '20px auto',
+              }}
+              key={object.id}
             >
-              Delete
-            </button>
-
-            <Link to={`/admin/allsurveys/${object.id}`}>
+              {object.name}
+              <br />
+              {/* {object.id} */}
               <button
-                className="mr-3"
-                style={{
-                  color: 'green',
-                  cursor: 'pointer',
-                  border: 'none',
-                  background: 'none',
-                }}
+                style={{marginTop: '15px'}}
+                onClick={() => handleDeleteObject (object.id)}
               >
-                Edit
+                Delete
               </button>
-            </Link>
 
-          </div>
-        ))}
-      </ul>
+              <Link to={`/admin/allsurveys/${object.id}`}>
+                <button
+                  className="mr-3"
+                  style={{
+                    color: 'green',
+                    cursor: 'pointer',
+                    border: 'none',
+                    background: 'none',
+                  }}
+                >
+                  Edit
+                </button>
+              </Link>
+
+            </div>
+          ))}
+        </ul>
+      </div>
+
     </div>
   );
 };
