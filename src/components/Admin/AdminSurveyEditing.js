@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDocument } from '../redux/actions/actions';
+import { setDocument } from '../../redux/actions/actions';
 // import Spinner from '../Spinner';
 import { useParams } from 'react-router-dom';
 
-import {firestore} from '../services/firebase';
+import {firestore} from '../../services/firebase';
 import { getDoc, doc} from 'firebase/firestore';
 
 const SurveyEditing = () => {

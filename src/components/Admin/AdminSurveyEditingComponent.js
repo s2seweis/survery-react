@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 // ###
-import SurveyEditing from './SurveyEditing';
+import SurveyEditing from './AdminSurveyEditing';
 // ###
 
 const SurveyEditingComponent = () => {

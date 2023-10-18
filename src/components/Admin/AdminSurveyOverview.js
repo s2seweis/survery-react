@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {setObjects, deleteObject} from '../redux/actions/actions';
-import {firestore} from '../services/firebase';
+import {setObjects, deleteObject} from '../../redux/actions/actions';
+import {firestore} from '../../services/firebase';
 import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
 import {Link} from 'react-router-dom';
 
@@ -65,7 +65,7 @@ const SurveyOverview = () => {
               Delete
             </button>
 
-            <Link to={`/overview/${object.id}`}>
+            <Link to={`/admin/allsurveys/${object.id}`}>
               <button
                 className="mr-3"
                 style={{

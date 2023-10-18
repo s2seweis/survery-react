@@ -58,21 +58,6 @@ This project is a simple survey application built using React for the front-end 
 
 6. Access the application at `http://localhost:3000`.
 
-## Usage
-
-- **User:** Sign up or log in to participate in surveys. Answer the questions and submit your responses.
-- **Admin:** Log in with the admin credentials to create new surveys, view survey results, and manage existing surveys.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you find any problems or have suggestions for improvements.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 Happy surveying! 📝✨
 
 ## Coming: 
@@ -80,4 +65,8 @@ Happy surveying! 📝✨
 2. Admin Area 
 3. Area for Chart.js
 4. Auth
-5. Summary for the Survey/User
+5. Results for the Survey/User
+6. Drag & Drop (DnD)
+https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
+7. Build a form for add JSON Form Data and make it flexible
+8. "drag and drop for a from for reorder the questions react give me an example"

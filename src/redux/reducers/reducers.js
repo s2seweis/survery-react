@@ -11,7 +11,7 @@ const initialState = {
   data: [],
 };
 
-const rootReducer = (state = initialState, action) => {
+const rootReducer1 = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DATA:
       return {
@@ -52,4 +52,4 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+export default rootReducer1;
