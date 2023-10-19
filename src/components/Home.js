@@ -25,6 +25,7 @@ const Home = ({ match }) => {
       <a href='/playground'>Playground</a>
       <a href='/overview'>Overview</a>
       <a href='/form'>Form</a>
+      <a href='/test'>Test</a>
       </div>
 
      

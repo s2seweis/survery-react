@@ -9,6 +9,7 @@ import AdminAddSurvey from './components/Admin/AdminAddSurvey';
 import Overview from './components/Overview';
 import Success from './components/Success';
 import Playground from './components/Playground';
+import ParentComponent from './components/Test/TestParent';
 
 const AppRouter = () => {
   return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
         <Route path="/overview" element={<Overview/>} />
         <Route path="/form" element={<SurveyForm/>} />
         <Route path="/form/success" element={<Success/>} />
+        <Route path="/test" element={<ParentComponent/>} />
 
 
 
