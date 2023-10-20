@@ -10,6 +10,7 @@ import Overview from './components/Overview';
 import Success from './components/Success';
 import Playground from './components/Playground';
 import ParentComponent from './components/Test/TestParent';
+import RestForm from './components/Test/RestForm';
 
 const AppRouter = () => {
   return (
@@ -21,7 +22,7 @@ const AppRouter = () => {
         <Route path="/form" element={<SurveyForm/>} />
         <Route path="/form/success" element={<Success/>} />
         <Route path="/test" element={<ParentComponent/>} />
-        <Route path="/test" element={<ParentComponent/>} />
+        <Route path="/test2" element={<RestForm/>} />
 
 
 

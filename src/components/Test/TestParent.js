@@ -4,6 +4,7 @@ import TestComment from './TestComment';
 import TestCheckbox from './TestCheckbox';
 import TestRadioGroup from './TestRadiogroup';
 import TestRating from './TestRating';
+import RestForm from './RestForm';
 
 import './index.css'; // Import your CSS file for styling
 
@@ -379,6 +380,8 @@ function ParentComponent() {
             )}
           </Droppable>
         </DragDropContext>
+
+      <RestForm data={characters} ></RestForm>
 
       </form>
     </div>
