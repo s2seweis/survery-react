@@ -21,6 +21,7 @@ const AppRouter = () => {
         <Route path="/form" element={<SurveyForm/>} />
         <Route path="/form/success" element={<Success/>} />
         <Route path="/test" element={<ParentComponent/>} />
+        <Route path="/test" element={<ParentComponent/>} />
 
 
 
