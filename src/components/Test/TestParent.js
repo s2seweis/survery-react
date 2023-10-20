@@ -5,6 +5,9 @@ import TestCheckbox from './TestCheckbox';
 import TestRadioGroup from './TestRadiogroup';
 import TestRating from './TestRating';
 
+import './index.css'; // Import your CSS file for styling
+
+
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function ParentComponent() {
@@ -357,11 +360,11 @@ function ParentComponent() {
         <DragDropContext onDragEnd={handleonDragEnd} >
           <Droppable droppableId='characters'>
             {(provided) => (
-              <ol style={{}} {...provided.droppableProps} ref={provided.innerRef}>
+              <ol   {...provided.droppableProps} ref={provided.innerRef}>
                 {characters.map((data, index) => (
                   <Draggable key={index} draggableId={`draggable-${index}`} index={index}>
                     {(provided) => (
-                      <li
+                      <li style={{background:"lightblue", padding:"10px", marginBottom:"10px"}}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
