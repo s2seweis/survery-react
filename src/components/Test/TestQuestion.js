@@ -2,10 +2,10 @@ import React from 'react';
 
 function ChildQuestion(props) {
   return (
-    <div>
+    <div className="form-container" >
       {props.elements.map((element, index) => (
         <div key={index} className="element-container">
-          <label>
+          {/* <label>
               Type:
               <input
                 type="text"
@@ -13,7 +13,7 @@ function ChildQuestion(props) {
                 value={element.type}
                 onChange={(e) => props.onElementChange(e, index)}
               />
-            </label>
+            </label> */}
 
             <label>
               Name:

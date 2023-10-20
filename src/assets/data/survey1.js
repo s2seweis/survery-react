@@ -10,6 +10,7 @@ const survey1 = {
             name: 'name',
             title: 'What is your name?',
             isRequired: true,
+            // choices: undefined
           },
           {
             type: 'radiogroup',

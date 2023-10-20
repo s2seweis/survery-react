@@ -1,62 +1,84 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import ChildQuestion from './TestQuestion';
 import TestComment from './TestComment';
 import TestCheckbox from './TestCheckbox';
 import TestRadioGroup from './TestRadiogroup';
 import TestRating from './TestRating';
 
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-function ParentComponent () {
-  const [formData, setFormData] = useState ({
+function ParentComponent() {
+
+
+
+
+  const [formData, setFormData] = useState({
     elements: [],
   });
-  console.log ('line:1', formData.elements);
+  console.log('line:1', formData.elements);
 
-  const [formData2, setFormData2] = useState ({
+  const [formData2, setFormData2] = useState({
     elements2: [],
   });
 
-  const [formData3, setFormData3] = useState ({
+  const [formData3, setFormData3] = useState({
     elements3: [],
   });
 
-  const [formData4, setFormData4] = useState ({
+  const [formData4, setFormData4] = useState({
     elements4: [],
   });
 
-  const [formData5, setFormData5] = useState ({
+  const [formData5, setFormData5] = useState({
     elements5: [],
   });
-  console.log ('line:800', formData);
+  console.log('line:800', formData);
 
   // #################################################################### - Question
 
-  const mergedElements = [
-    ...formData.elements,
-    ...formData2.elements2,
-    ...formData3.elements3,
-    ...formData4.elements4,
-    ...formData5.elements5,
-  ];
+  const [characters, updateCharacters] = useState([]);
+  console.log("line:122", characters);
 
-  const extractedData = mergedElements.map (element => {
-    return {
-      name: element.name,
-      title: element.title,
-    };
-  });
+  useEffect(() => {
 
-  console.log ('line:1000', mergedElements);
+
+    const mergedElements = [
+      ...formData.elements,
+      ...formData2.elements2,
+      ...formData3.elements3,
+      ...formData4.elements4,
+      ...formData5.elements5,
+    ];
+
+
+    const extractedData = mergedElements.map(element => {
+      return {
+        name: element.name,
+        title: element.title,
+        type: element.type,
+        isRequired: element.isRequired,
+        choices: element.choices
+
+      };
+    });
+
+    updateCharacters(extractedData);
+    console.log("line:122", characters);
+
+  }, [formData, formData2, formData3, formData4, formData5]);
+
+
+
+
 
   // #################################################################### - Question
 
   const handleAddElement = () => {
-    setFormData (prevData => ({
+    setFormData(prevData => ({
       elements: [
         ...prevData.elements,
         {
-          type: '',
+          type: 'text',
           name: '',
           title: '',
           isRequired: true,
@@ -66,39 +88,39 @@ function ParentComponent () {
   };
 
   const handleElementChange = (e, index) => {
-    const {name, value, type, checked} = e.target;
+    const { name, value, type, checked } = e.target;
     const updatedElements = [...formData.elements];
     updatedElements[index] = {
       ...updatedElements[index],
       [name]: type === 'checkbox' ? checked : value,
     };
-    setFormData ({elements: updatedElements});
+    setFormData({ elements: updatedElements });
   };
 
   const handleDeleteElement = index => {
     const updatedElements = [...formData.elements];
-    updatedElements.splice (index, 1);
-    setFormData ({elements: updatedElements});
+    updatedElements.splice(index, 1);
+    setFormData({ elements: updatedElements });
   };
 
   const handleSubmit = e => {
-    e.preventDefault ();
+    e.preventDefault();
     // Handle form submission logic here with formData
-    console.log (formData);
-    console.log (formData2);
-    console.log (formData3);
-    console.log (formData4);
-    console.log ('line:322', formData5);
+    console.log(formData);
+    console.log(formData2);
+    console.log(formData3);
+    console.log(formData4);
+    console.log('line:322', formData5);
   };
 
   // #################################################################### - Comment
 
   const handleAddElement2 = () => {
-    setFormData2 (prevData => ({
+    setFormData2(prevData => ({
       elements2: [
         ...prevData.elements2,
         {
-          type: '',
+          type: 'comment',
           name: '',
           title: '',
           isRequired: true,
@@ -108,31 +130,31 @@ function ParentComponent () {
   };
 
   const handleElementChange2 = (e, index) => {
-    const {name, value, type, checked} = e.target;
+    const { name, value, type, checked } = e.target;
     const updatedElements = [...formData2.elements2];
     updatedElements[index] = {
       ...updatedElements[index],
       [name]: type === 'checkbox' ? checked : value,
     };
-    setFormData2 ({elements2: updatedElements});
+    setFormData2({ elements2: updatedElements });
   };
 
   const handleDeleteElement2 = index => {
     const updatedElements = [...formData2.elements2];
-    updatedElements.splice (index, 1);
-    setFormData2 ({elements2: updatedElements});
+    updatedElements.splice(index, 1);
+    setFormData2({ elements2: updatedElements });
   };
 
   const handleSubmit2 = e => {
-    e.preventDefault ();
+    e.preventDefault();
     // Handle form submission logic here with formData
-    console.log (formData2);
+    console.log(formData2);
   };
 
   // #################################################################### - Checkbox
 
   const handleAddElement3 = () => {
-    setFormData3 (prevData => ({
+    setFormData3(prevData => ({
       elements3: [
         ...prevData.elements3,
         {
@@ -147,13 +169,13 @@ function ParentComponent () {
   };
 
   const handleElementChange3 = (e, index) => {
-    const {name, value, type, checked} = e.target;
+    const { name, value, type, checked } = e.target;
     const updatedElements = [...formData3.elements3];
     let newValue = type === 'checkbox' ? checked : value;
 
     if (name === 'choices') {
       // Ensure choices is always an array
-      newValue = newValue.split (',').map (choice => choice.trim ());
+      newValue = newValue.split(',').map(choice => choice.trim());
     }
 
     updatedElements[index] = {
@@ -161,25 +183,25 @@ function ParentComponent () {
       [name]: newValue,
     };
 
-    setFormData3 ({elements3: updatedElements});
+    setFormData3({ elements3: updatedElements });
   };
 
   const handleDeleteElement3 = index => {
     const updatedElements = [...formData3.elements3];
-    updatedElements.splice (index, 1);
-    setFormData3 ({elements3: updatedElements});
+    updatedElements.splice(index, 1);
+    setFormData3({ elements3: updatedElements });
   };
 
   const handleSubmit3 = e => {
-    e.preventDefault ();
+    e.preventDefault();
     // Handle form submission logic here with formData
-    console.log (formData3);
+    console.log(formData3);
   };
 
   // #################################################################### - Radio
 
   const handleAddElement4 = () => {
-    setFormData4 (prevData => ({
+    setFormData4(prevData => ({
       elements4: [
         ...prevData.elements4,
         {
@@ -194,36 +216,36 @@ function ParentComponent () {
   };
 
   const handleElementChange4 = (e, index) => {
-    const {name, value, type, checked} = e.target;
+    const { name, value, type, checked } = e.target;
     const updatedElements = [...formData4.elements4];
     let newValue = value;
     if (name === 'choices') {
       // Split comma-separated values into an array
-      newValue = value.split (',').map (choice => choice.trim ());
+      newValue = value.split(',').map(choice => choice.trim());
     }
     updatedElements[index] = {
       ...updatedElements[index],
       [name]: type === 'checkbox' ? checked : newValue,
     };
-    setFormData4 ({elements4: updatedElements});
+    setFormData4({ elements4: updatedElements });
   };
 
   const handleDeleteElement4 = index => {
     const updatedElements = [...formData4.elements4];
-    updatedElements.splice (index, 1);
-    setFormData4 ({elements4: updatedElements});
+    updatedElements.splice(index, 1);
+    setFormData4({ elements4: updatedElements });
   };
 
   const handleSubmit4 = e => {
-    e.preventDefault ();
+    e.preventDefault();
     // Handle form submission logic here with formData
-    console.log (formData4);
+    console.log(formData4);
   };
 
   // #################################################################### - Rating
 
   const handleAddElement5 = () => {
-    setFormData5 (prevData => ({
+    setFormData5(prevData => ({
       elements5: [
         ...prevData.elements5,
         {
@@ -249,39 +271,51 @@ function ParentComponent () {
   // };
 
   const handleElementChange5 = (e, index) => {
-    const {name, value, type, checked} = e.target;
+    const { name, value, type, checked } = e.target;
     const updatedElements = [...formData5.elements5];
     let newValue = type === 'checkbox' ? checked : value;
 
     // Parse numeric inputs to integers
     if (name === 'rateMin' || name === 'rateMax') {
-      newValue = parseInt (value, 10);
+      newValue = parseInt(value, 10);
     }
 
     updatedElements[index] = {
       ...updatedElements[index],
       [name]: newValue,
     };
-    setFormData5 ({elements5: updatedElements});
+    setFormData5({ elements5: updatedElements });
   };
 
   const handleDeleteElement5 = index => {
     const updatedElements = [...formData5.elements5];
-    updatedElements.splice (index, 1);
-    setFormData5 ({elements5: updatedElements});
+    updatedElements.splice(index, 1);
+    setFormData5({ elements5: updatedElements });
   };
 
   const handleSubmit5 = e => {
-    e.preventDefault ();
+    e.preventDefault();
     // Handle form submission logic here with formData
-    console.log (formData5);
+    console.log(formData5);
   };
+
+  function handleonDragEnd(result) {
+    const items = Array.from(characters);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    updateCharacters(items);
+
+  }
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={handleSubmit}>
+
+      <h2>Add Questions to the Survey:</h2>
+
+      <form  className="form" onSubmit={handleSubmit}>
         {/* ... (same code as before) */}
-        <ChildQuestion
+        <ChildQuestion 
           elements={formData.elements}
           onAddElement={handleAddElement}
           onElementChange={handleElementChange}
@@ -319,29 +353,29 @@ function ParentComponent () {
           onDeleteElement5={handleDeleteElement5}
         />
 
-        <h2>Extracted Data:</h2>
-       <DragDropContext >
-      <Droppable droppableId='characters'>
-        {(provided) => (
-          <ul {...provided.droppableProps} ref={provided.innerRef}>
-            {extractedData.map((data, index) => (
-              <Draggable key={index} draggableId={`draggable-${index}`} index={index}>
-                {(provided) => (
-                  <li
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    ref={provided.innerRef}
-                  >
-                    <strong>Name:</strong> {data.name}, <strong>Title:</strong> {data.title}
-                  </li>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </ul>
-        )}
-      </Droppable>
-    </DragDropContext>
+        <h2>Rearrange the Survey Questions:</h2>
+        <DragDropContext onDragEnd={handleonDragEnd} >
+          <Droppable droppableId='characters'>
+            {(provided) => (
+              <ol style={{}} {...provided.droppableProps} ref={provided.innerRef}>
+                {characters.map((data, index) => (
+                  <Draggable key={index} draggableId={`draggable-${index}`} index={index}>
+                    {(provided) => (
+                      <li
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        <strong>Name:</strong> {data.name}, <strong>Title:</strong> {data.title}
+                      </li>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </ol>
+            )}
+          </Droppable>
+        </DragDropContext>
 
       </form>
     </div>
