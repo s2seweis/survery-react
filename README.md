@@ -7,7 +7,8 @@ This project is a simple survey application built using React for the front-end 
 - **Authentication:** Users can sign up and log in to participate in surveys.
 - **Survey Creation:** Admin can create custom surveys with multiple-choice questions.
 - **Survey Participation:** Users can participate in surveys by selecting their answers.
-- **Survey Results:** Admin can view the survey results in real-time.
+- **Survey Results:** Admin can view the survey results.
+- **Chart.js** For show graphically the survey results. 
 
 ## Technologies Used
 
@@ -29,6 +30,14 @@ Happy surveying! 📝✨
 5. Results for the Survey/User
 6. Drag & Drop (DnD)
 https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
-3:02-5:28
+3:02-5:28 -done-
 7. Build a form for add JSON Form Data and make it flexible
 8. "drag and drop for a from for reorder the questions react give me an example"
+
+
+folder structure: 
+node_modules, src, public, .vscode = beginning small letter
+src, components, Header, {Header.js, Header.css}
+pages, Home, {Home.js, Home.css}
+services, api.js
+utils, helpers.js
