@@ -87,6 +87,7 @@ const Navbar = ({
             <Dropdown.Toggle
               style={{fontSize: 'x-large'}} // variant="success"
               id="dropdown-basic"
+              className='navbar-dropdown'
             >
               Dropdown Button
             </Dropdown.Toggle>

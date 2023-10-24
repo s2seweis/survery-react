@@ -14,7 +14,8 @@ Navbar
     display: flex;
     align-items: center;
     z-index: 200;
-    background: #0d6efd;
+    background: var(--main-color, #1ab394);;
+    /* background: #0d6efd; */
     transition: top 0.8s
   }
   
@@ -48,6 +49,8 @@ Navbar
     color: black;
     cursor: pointer;
     transition: var(--transition);
+    background-color: var(--main-color, #1ab394) !important;
+    border: 1px solid white !important;
   }
 
   .toggle-btn:hover {
@@ -135,7 +138,10 @@ Navbar
     }
   }
 
- 
+ .navbar-dropdown{
+  background-color: var(--main-color, #1ab394) !important;
+  border: var(--main-color, #1ab394) !important;
+ }
 
 
 
