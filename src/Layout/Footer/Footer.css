@@ -41,7 +41,7 @@
 }
 
 .footer-e1-a{
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -109,3 +109,55 @@
 a {
   color: black;
 }
+
+.footer-blog{
+
+  background-color: #4086ec;
+    height: 70px;
+    font-size: 1.3rem;
+  }
+  
+  @media screen and (min-width: 760px) {
+    .footer-blog{
+      font-size: 1.7rem;
+    }
+  }
+  
+    /* ---
+### Social Media Links Footer/
+--- */
+
+.link-social-desktop {
+  float:left;
+  width:30px;   
+ text-align:center;
+ color: white;
+}
+
+.link-social-desktop:hover {
+  cursor: pointer;
+  font-size: 38px;
+  color: black;
+  transition: .5s ease;
+}
+
+.link-social-mobile {
+  float:left;
+  width:30px;   
+ text-align:center;
+ color: black;
+}
+
+.link-social-mobile:hover {
+  cursor: pointer;
+  font-size: 38px;
+  color: white;
+  transition: .5s ease;
+}
+
+.social-link {
+  font-size: 1.75rem;
+  color: var(--clr-grey-1);
+  transition: var(--transition);
+}
+

@@ -6,15 +6,15 @@ const DndList = (props) => {
     // console.log("line:700", props);
     // console.log("line:701", props.characters);
   return (
-    <div>
+    <div className='main-bottom'>
 
       <DragDropContext onDragEnd={props.handleonDragEnd}>
         <h2>Rearrange the Survey Questions:</h2>
         <h5>Drag & Drop the Questions</h5>
         <Droppable droppableId="characters">
           {provided => (
-            <ol
-              style={{margin: 'auto'}}
+            <div
+              style={{margin: 'auto', marginBottom:"20px"}}
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
@@ -25,7 +25,7 @@ const DndList = (props) => {
                   index={index}
                 >
                   {provided => (
-                    <li
+                    <div className='li-new'
                       style={{
                         background: 'lightblue',
                         padding: '10px',
@@ -43,12 +43,12 @@ const DndList = (props) => {
                       <strong>Title:</strong>
                       {' '}
                       {data.title}
-                    </li>
+                    </div>
                   )}
                 </Draggable>
               ))}
               {provided.placeholder}
-            </ol>
+            </div>
           )}
         </Droppable>
       </DragDropContext>

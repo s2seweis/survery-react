@@ -4,30 +4,6 @@ Navbar
 ===============
 */
 
-
-
-/* .navbar {
-  width: 100%;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 75px;
-  transition: top 0.6s;
-  background-color: #f0db4f;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.container {
-  padding: 100px 30px;
-}
-
-.navbar--hidden {
-  top: -75px;
-} */
-
 .navbar {
     /* position: absolute; */
     position: fixed !important;
@@ -47,18 +23,6 @@ Navbar
     transition: top 0.8s
   } 
   
-  .nav-center {
-  
-    /* grid-template-columns: repeat(6, 1fr);
-    display: grid; */
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    width: 100%;
-    /* margin-right: 40px; */
-  
-  }
-  
-  
   .nav-header {
     display: none;
   
@@ -67,18 +31,15 @@ Navbar
   @media screen and (min-width: 772px) {
     .nav-header {
       display: grid;
-      grid-column: 1/span 2;
+      grid-column: 1/span 3;
       margin-left: 20px;
     }
   }
-  
   
   .nav-header img {
     margin-bottom: 0.375rem;
     height: 50px;
   }
-  
-  
   
   .toggle-btn {
     font-size: 2rem;
@@ -87,25 +48,22 @@ Navbar
     color: black;
     cursor: pointer;
     transition: var(--transition);
-    /* display: none; */
   }
+
   .toggle-btn:hover {
     color: white;
   }
-  
   
   .nav-links {
     display: none;
   }
   
-  
   @media screen and (min-width: 772px) {
   
     .toggle-btn {
-      display: none;
+      display: none !important;
     }
-  
-  
+
     .nav-links {
       display: flex;
       justify-content: flex-end;
@@ -115,7 +73,7 @@ Navbar
       grid-column: 11/span 1;
       
     }
-  
+
     .nav-links a {
       margin-right: 2rem;
       text-transform: capitalize;
@@ -126,16 +84,23 @@ Navbar
       padding: 0.5rem 0;
       text-decoration: auto;
     }
+
     .nav-links a:hover {
       color: var(--clr-primary-5);
       box-shadow: 0px 2px var(--clr-primary-5);
     }
+
     .nav-center {
      display: grid;
      grid-template-columns: repeat(12, 1fr);
      align-items: center;
      margin-right: auto;
     }
+
+  }
+
+  .nav-center {
+    width: 100%;
   }
   
   @media screen and (min-width: 760px) {
@@ -144,9 +109,35 @@ Navbar
       height: 100px;
     }
   }
+
+  .nav-title {
+    display: flex;
+    align-items: center;
+    grid-column: 4/span 3;
+  }
   
+  @media screen and (min-width: 772px) {
+    .nav-title{
+      display: grid;
+      grid-column: 4/span 6;
+    }
+  }
   
+  .h2-nav-title{
+  font-size: 2.2rem;
+  color: #fafafa;
+  }
   
-  /* =============== 
-  Navbar
-  =============== */
+  @media screen and (min-width: 1050px) {
+    .h2-nav-title{
+      font-size: xxx-large;
+  
+    }
+  }
+
+ 
+
+
+
+
+

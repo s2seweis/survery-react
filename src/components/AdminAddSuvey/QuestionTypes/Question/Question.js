@@ -1,8 +1,9 @@
 import React from 'react';
 
-function ChildQuestion (props) {
+function Question (props) {
+  console.log("line:100",props);
   return (
-    <div className="form-container">
+    <div className="form-container-grey">
       <h4>Questions:</h4>
       {props.elements.map ((element, index) => (
         <div key={index} className="element-container">
@@ -15,7 +16,7 @@ function ChildQuestion (props) {
                 onChange={(e) => props.onElementChange(e, index)}
               />
             </label> */}
-          <label>
+          <label className='label'>
             Name:
             <input
               type="text"
@@ -25,7 +26,7 @@ function ChildQuestion (props) {
             />
           </label>
 
-          <label>
+          <label className='label'>
             Title:
             <input
               type="text"
@@ -36,7 +37,7 @@ function ChildQuestion (props) {
           </label>
 
 
-          <label  className="checkbox-label">
+          <div  className="checkbox-div">
             Is Required:
             <input
               type="checkbox"
@@ -45,13 +46,13 @@ function ChildQuestion (props) {
               onChange={e => props.onElementChange (e, index)}
             />
             <button
-              style={{background: 'red'}}
+              className='button-delete'
               type="button"
               onClick={() => props.onDeleteElement (index)}
             >
               Delete
             </button>
-          </label>
+          </div>
         </div>
       ))}
 
@@ -63,4 +64,4 @@ function ChildQuestion (props) {
   );
 }
 
-export default ChildQuestion;
+export default Question;

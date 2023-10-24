@@ -1,0 +1,211 @@
+li {
+background-color: #F4F4F4;
+
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 10px;
+margin: 15 px auto;
+list-style-type: none;
+
+}
+.li-new {
+background-color: #F4F4F4;
+width: 90%;
+margin: 15px auto;
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 10px;
+/* margin: 15 px auto; */
+list-style-type: none;
+
+}
+
+.form-container {
+    margin: 0px 10px;
+    /* background-color: #F4F4F4; */
+}
+
+.form-container-grey {
+    margin: 0px 10px;
+    background-color: #F4F4F4;
+}
+
+.element-container {
+    width: 300px;
+    /* width: 300px; */
+    padding: 5px;
+    margin: auto;
+}
+
+col {
+    margin: auto;
+    filter: drop-shadow(2px 2px 1px black);
+    cursor: grab;
+}
+
+li {
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+hr {
+    border: 1px solid lightgray;
+}
+
+/* button {
+    margin: 0px;
+    padding: 10px;
+    margin: 0px 5px;
+} */
+
+button {
+  background-color: #4caf50; /* Green background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 12px 24px; /* Padding inside the button */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* No underline on the text */
+  display: inline-block; /* Display as inline block element */
+  font-size: 16px; /* Font size */
+  border-radius: 8px !important; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  cursor: pointer; /* Cursor style on hover */
+}
+
+button:hover {
+  background-color: #a8d4aa; /* Darker green color on hover */
+}
+
+.button-delete{
+  background-color: red; /* Green background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding inside the button */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* No underline on the text */
+  display: inline-block; /* Display as inline block element */
+  font-size: 16px; /* Font size */
+  border-radius: 8px !important; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  cursor: pointer; /* Cursor style on hover */
+  margin-left: 5px;
+}
+
+.button-delete:hover {
+  background-color: rgb(227, 189, 189); 
+}
+
+h4 {
+    margin: 5px;
+}
+
+/* ---
+### RestForm
+--- */
+
+.form-container-1{
+  background-color: white;
+  /* border: 1px solid black; */
+  border: 1px solid var(--border-color, #e7e7e7);
+
+  /* width: fit-content; */
+  /* margin: 0px auto 40px auto; */
+  margin: 0px 10px 40px;
+}
+
+.form-container-2 {
+  margin: auto;
+  padding: 5px;
+  /* width: fit-content; */
+  margin-top: -20px;
+  /* margin-bottom: 80px; */
+}
+
+.element-container-1{
+ min-width: 350px;
+ background-color: #F4F4F4;
+}
+
+/* label{
+  width: min-content;
+} */
+
+.label{
+ 
+  padding: 5px;
+  /* width: min-content; */
+  margin: auto;
+  width: 100%;
+}
+
+input{
+  width: 100%;
+}
+
+.element-container{
+  display: grid;
+  justify-content: center;
+}
+
+.checkbox-div{
+  display: flex;
+  margin: 10px auto;
+  align-items: center;
+}
+
+.go-back{
+  margin: 90px 15px 15px 15px;
+  display: flex;
+}
+
+@media screen and (min-width: 760px) {
+  .go-back {
+    margin: 120px 15px 15px 15px;
+  }
+}
+
+button{
+  border-radius: 10px;
+}
+
+.submit-form{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* colors: 
+var(--text-color, #404040);
+min-width: min(100%, 300px);
+max-width: 100%;
+border-color: var(--main-color, #1ab394)
+background-color: var(--body-background-color, white);
+color: var(--text-color, #6d7072);
+padding: 1em 1em 1.6428em 1em; */
+color: var(--text-color, #6d7072);
+
+.main-admin{
+  /* border: 1px solid black; */
+  /* border: 1px solid var(--border-color, #e7e7e7); */
+
+}
+
+.main-bottom{
+  margin-top: 20px;
+  /* border: 1px solid black; */
+  border: 1px solid var(--border-color, #e7e7e7);
+
+}
+
+.green-border-input{
+  border: 1px solid var(--border-color, #e7e7e7);
+
+}
+
+.green-border-input:focus {
+  /* border: 2px solid green; */
+  
+  /* border-color: var(--main-color, #1ab394): */
+  
+  outline: none; /* Optional: Removes the default focus outline */
+  border-color: var(--main-color, #1ab394);
+}
+

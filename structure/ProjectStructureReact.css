@@ -1,0 +1,45 @@
+my-react-app/
+  ├── node_modules/
+  ├── public/
+  │   ├── index.html
+  │   ├── favicon.ico
+  │   └── ...
+  ├── src/
+  │   ├── assets/
+  │   │   ├── images/
+  │   │   └── styles/
+  │   │       └── main.css
+  │   ├── components/
+  │   │   ├── Header/
+  │   │   │   ├── Header.js
+  │   │   │   ├── Header.css
+  │   │   │   └── ...
+  │   │   ├── Footer/
+  │   │   │   ├── Footer.js
+  │   │   │   ├── Footer.css
+  │   │   │   └── ...
+  │   │   └── ...
+  │   ├── pages/
+  │   │   ├── Home/
+  │   │   │   ├── Home.js
+  │   │   │   ├── Home.css
+  │   │   │   └── ...
+  │   │   ├── About/
+  │   │   │   ├── About.js
+  │   │   │   ├── About.css
+  │   │   │   └── ...
+  │   │   └── ...
+  │   ├── services/
+  │   │   ├── api.js
+  │   │   └── ...
+  │   ├── utils/
+  │   │   ├── helpers.js
+  │   │   └── ...
+  │   ├── App.js
+  │   ├── App.css
+  │   ├── index.js
+  │   └── ...
+  ├── .gitignore
+  ├── package.json
+  ├── README.md
+  └── ...

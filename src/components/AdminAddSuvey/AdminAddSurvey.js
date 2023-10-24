@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import ChildQuestion from './TestQuestion';
-import TestComment from './TestComment';
-import TestCheckbox from './TestCheckbox';
-import TestRadioGroup from './TestRadiogroup';
-import TestRating from './TestRating';
-import RestForm from './RestForm';
+import Question from './QuestionTypes/Question/Question';
+import Comment from './QuestionTypes/Comment/Comment';
+import Checkbox from './QuestionTypes/CheckBox/CheckBox';
+import RadioGroup from './QuestionTypes/RadioGroup/RadioGroup';
+import Rating from './QuestionTypes/Rating/Rating';
+import RestForm from './RestForm/RestForm';
 
-import DndList from './DndList';
+import DndList from './DndList/DndList';
 
 import {useNavigate} from 'react-router-dom';
 
-import './index.css'; // Import your CSS file for styling
+import './AdminAddSurvey.css'; // Import your CSS file for styling
 
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+// import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 function ParentComponent () {
   // #################################################################### - Initial State
@@ -39,7 +39,7 @@ function ParentComponent () {
   });
   // console.log ('line:800', formData);
 
-  // #################################################################### - Question
+  // #################################################################### - Dnd
 
   const [characters, updateCharacters] = useState ([]);
   console.log ('line:1', characters);
@@ -65,7 +65,7 @@ function ParentComponent () {
       });
 
       updateCharacters (extractedData);
-      console.log ('line:122', characters);
+      console.log ('line:3', characters);
     },
     [formData, formData2, formData3, formData4, formData5]
   );
@@ -296,8 +296,6 @@ function ParentComponent () {
     console.log (formData5);
   };
 
-  // ### dnd
-
   // #################################################################### - Rest Form
 
   const initialElement = {
@@ -316,8 +314,10 @@ function ParentComponent () {
   });
   console.log ('line:2', surveyData);
 
+  
+
   const data500 = {
-    title: '',
+    title: surveyData.title || '',
     pages: [{name: 'page1', elements: characters}],
   };
 
@@ -338,26 +338,6 @@ function ParentComponent () {
     setSurveyData (updatedSurvey);
   };
 
-  const handleAddPage = () => {
-    const updatedSurvey = {...surveyData};
-    const newPageName = `page${updatedSurvey.pages.length + 1}`;
-    updatedSurvey.pages.push ({name: newPageName, elements: []});
-    setSurveyData (updatedSurvey);
-  };
-
-  const handleAddElementForm = pageIndex => {
-    const updatedSurvey = {...surveyData};
-    updatedSurvey.pages[pageIndex].elements.push ({...initialElement});
-    setSurveyData (updatedSurvey);
-  };
-
-  const handleElementChangeForm = (e, pageIndex, elementIndex) => {
-    const {name, value} = e.target;
-    const updatedSurvey = {...surveyData};
-    updatedSurvey.pages[pageIndex].elements[elementIndex][name] = value;
-    setSurveyData (updatedSurvey);
-  };
-
   const handleSubmitForm = e => {
     e.preventDefault ();
     // Handle form submission logic here, using surveyData
@@ -371,34 +351,35 @@ function ParentComponent () {
   const navigate = useNavigate ();
 
   const goBack = () => {
-    navigate(-1); // This function will navigate back to the previous page in the history stack
+    navigate (-1); // This function will navigate back to the previous page in the history stack
   };
 
   return (
     <div>
 
-      <button style={{margin:"15px 15px", display:"flex"}} onClick={goBack}>
+      <button className='go-back'  onClick={goBack}>
         Go Back
       </button>
 
       <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmitForm}>
 
-        <div className="form-container">
-          <div className="element-container">
+        <div className="form-container-1">
+          <div className="element-container-1">
 
             <h2>Survey Form</h2>
-            <label>
+            <label className='label'>
               Title:
               <input
                 type="text"
                 name="title"
                 value={surveyData.title}
                 onChange={handleTitleChange}
+                className="green-border-input"
               />
             </label>
             {surveyData.pages?.map ((page, pageIndex) => (
-              <div key={pageIndex}>
-                <label>
+              <div className='label' key={pageIndex}>
+                <label className='label'>
                   Page Name:
                   <input
                     type="text"
@@ -418,49 +399,42 @@ function ParentComponent () {
           </div>
         </div>
 
-        <div style={{marginBottom: '100px'}} className="form-container">
+        <div style={{}} className="form-container">
           {/* <RestForm data={characters} /> */}
 
-          <div className="" onSubmit={handleSubmit}>
+          <div className="main-admin" onSubmit={handleSubmit}>
             <h2>Add Questions to the Survey:</h2>
             <hr />
-            {/* ... (same code as before) */}
-            <ChildQuestion
+            <Question
               elements={formData.elements}
               onAddElement={handleAddElement}
               onElementChange={handleElementChange}
               onDeleteElement={handleDeleteElement}
+            // surveyData={surveyData}
             />
             <hr />
-            {/* ### */}
-            <TestComment
+            <Comment
               elements2={formData2.elements2}
               onElementChange2={handleElementChange2}
               onDeleteElement2={handleDeleteElement2}
               onAddElement2={handleAddElement2}
             />
             <hr />
-            {/* ### */}
-            <TestCheckbox
+            <Checkbox
               elements3={formData3.elements3}
               onAddElement3={handleAddElement3}
               onElementChange3={handleElementChange3}
               onDeleteElement3={handleDeleteElement3}
             />
             <hr />
-            {/* ### */}
-
-            <TestRadioGroup
+            <RadioGroup
               elements4={formData4.elements4}
               onElementChange4={handleElementChange4}
               onAddElement4={handleAddElement4}
               onDeleteElement4={handleDeleteElement4}
             />
             <hr />
-
-            {/* ### */}
-
-            <TestRating
+            <Rating
               elements5={formData5.elements5}
               onElementChange5={handleElementChange5}
               onAddElement5={handleAddElement5}
@@ -469,61 +443,13 @@ function ParentComponent () {
             <hr />
 
           </div>
-          {/* ### */}
           <div>
-            {/* <DragDropContext onDragEnd={handleonDragEnd}>
-            <h2>Rearrange the Survey Questions:</h2>
-            <Droppable droppableId="characters">
-              {provided => (
-                <ol
-                  style={{margin: 'auto'}}
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                >
-                  {characters.map ((data, index) => (
-                    <Draggable
-                      key={index}
-                      draggableId={`draggable-${index}`}
-                      index={index}
-                    >
-                      {provided => (
-                        <li
-                          style={{
-                            background: 'lightblue',
-                            padding: '10px',
-                            marginBottom: '10px',
-                          }}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          ref={provided.innerRef}
-                        >
-                          <strong>Name:</strong>
-                          {' '}
-                          {data.name}
-                          ,
-                          {' '}
-                          <strong>Title:</strong>
-                          {' '}
-                          {data.title}
-                        </li>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </ol>
-              )}
-            </Droppable>
-          </DragDropContext> */}
-            {/* ### */}
-
             <DndList
               characters={characters}
               handleonDragEnd={handleonDragEnd}
             />
-
           </div>
-
-          <div style={{marginTop: '75px'}}>
+          <div className='submit-form' style={{}}>
             <button style={{background: '#45a049'}} type="submit">
               Submit Form
             </button>

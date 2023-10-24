@@ -4,9 +4,9 @@ import SurveyForm from './components/SurveyForm/SurveyForm';
 import Home from './components/Home/Home';
 import Overview from './components/Overview/Overview';
 import Success from './components/Success/Success';
-import ParentComponent from './components/AdminAddSuvey/TestParent';
+import AdminAddSurvey from './components/AdminAddSuvey/AdminAddSurvey';
 
-import Layout from './Layout/Layout';
+import Layout from './layout/Layout';
 
 const AppRouter = () => {
   return (
@@ -18,7 +18,7 @@ const AppRouter = () => {
         <Route path="/overview" element={<Overview />} />
         <Route path="/form" element={<SurveyForm />} />
         <Route path="/form/success" element={<Success />} />
-        <Route path="/admin" element={<ParentComponent />} />
+        <Route path="/admin" element={<AdminAddSurvey />} />
 
         <Route />
 

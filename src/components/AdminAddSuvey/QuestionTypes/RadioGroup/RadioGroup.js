@@ -1,55 +1,58 @@
 import React from 'react';
 
-const TestRadioGroup = (props) => {
+const RadioGroup = props => {
   // console.log("line:310", props);
   return (
     <div className="form-container">
-       <h4>Radio Group:</h4>
-      {props.elements4.map((element, index) => (
+      <h4>Radio Group:</h4>
+      {props.elements4.map ((element, index) => (
         <div key={index} className="element-container">
-          <label>
+          <label className='label'>
             Name:
             <input
               type="text"
               name="name"
               value={element.name}
-              onChange={(e) => props.onElementChange4(e, index)}
+              onChange={e => props.onElementChange4 (e, index)}
             />
           </label>
 
-          <label>
+          <label className='label'>
             Title:
             <input
               type="text"
               name="title"
               value={element.title}
-              onChange={(e) => props.onElementChange4(e, index)}
+              onChange={e => props.onElementChange4 (e, index)}
             />
           </label>
 
-          <label>
+          <label className='label'>
             Choices (comma-separated):
             <input
               type="text"
               name="choices"
-              value={element.choices.join(', ')}
-              onChange={(e) => props.onElementChange4(e, index)}
+              value={element.choices.join (', ')}
+              onChange={e => props.onElementChange4 (e, index)}
             />
           </label>
 
-          <label className="checkbox-label">
+          <label className="checkbox-div">
             Is Required:
             <input
               type="checkbox"
               name="isRequired"
               checked={element.isRequired}
-              onChange={(e) => props.onElementChange4(e, index)}
+              onChange={e => props.onElementChange4 (e, index)}
             />
-          <button style={{background:"red"}} type="button" onClick={() => props.onDeleteElement4(index)}>
-            Delete
-          </button>
+            <button
+              className='button-delete'
+              type="button"
+              onClick={() => props.onDeleteElement4 (index)}
+            >
+              Delete
+            </button>
           </label>
-
 
         </div>
       ))}
@@ -58,10 +61,8 @@ const TestRadioGroup = (props) => {
         Add Radio Element
       </button>
 
-
-
     </div>
   );
 };
 
-export default TestRadioGroup;
+export default RadioGroup;

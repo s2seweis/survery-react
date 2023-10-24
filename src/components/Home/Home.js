@@ -5,7 +5,7 @@ const Home = ({ match }) => {
   
 
   return (
-    <div>
+    <div className='home-layer' style={{position:"absolute", width:"100%", marginTop:"100px"}}>
 
       <h1>Welcome to my survey app!</h1>
       <h3>Current routes and structure:</h3>
