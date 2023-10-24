@@ -363,12 +363,14 @@ function ParentComponent () {
 
       <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmitForm}>
 
+            <h2>Survey Form</h2>
+            <hr className='green-line-1' />
+
         <div className="form-container-1">
           <div className="element-container-1">
 
-            <h2>Survey Form</h2>
             <label className='label'>
-              Title:
+              <h4>Title:</h4> 
               <input
                 type="text"
                 name="title"
@@ -380,7 +382,7 @@ function ParentComponent () {
             {surveyData.pages?.map ((page, pageIndex) => (
               <div className='label' key={pageIndex}>
                 <label className='label'>
-                  Page Name:
+                  <h4>Page Name:</h4> 
                   <input
                     type="text"
                     name="pageName"
@@ -404,7 +406,7 @@ function ParentComponent () {
 
           <div className="main-admin" onSubmit={handleSubmit}>
             <h2>Add Questions to the Survey:</h2>
-            <hr />
+            <hr className='green-line' />
             <Question
               elements={formData.elements}
               onAddElement={handleAddElement}
