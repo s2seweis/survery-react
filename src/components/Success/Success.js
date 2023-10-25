@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 const Success = ({ match }) => {
 
   const document = useSelector((state) => state.document);
-  console.log("line:500", document);
 
   
 

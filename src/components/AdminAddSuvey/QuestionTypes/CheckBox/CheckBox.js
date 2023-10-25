@@ -12,6 +12,7 @@ const Checkbox = props => {
               type="text"
               name="name"
               value={element.name}
+              className="green-border-input"
               onChange={e => props.onElementChange3 (e, index)}
             />
           </label>
@@ -22,6 +23,7 @@ const Checkbox = props => {
               type="text"
               name="title"
               value={element.title}
+              className="green-border-input"
               onChange={e => props.onElementChange3 (e, index)}
             />
           </label>
@@ -34,6 +36,7 @@ const Checkbox = props => {
               value={element.choices.join (', ')}
               onChange={e => props.onElementChange3 (e, index)}
               placeholder={'0-20, 21-50, 51-70'}
+              className="green-border-input"
             />
           </label>
 

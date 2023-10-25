@@ -70,7 +70,7 @@ const Navbar = ({
               fontSize: 'revert',
             }}
           >
-            Title
+            Survey App
           </h2>
         </div>
 
@@ -89,18 +89,18 @@ const Navbar = ({
               id="dropdown-basic"
               className='navbar-dropdown'
             >
-              Dropdown Button
+              Settings
             </Dropdown.Toggle>
 
             <Dropdown.Menu style={{width: '-webkit-fill-available'}}>
-              <Dropdown.Item style={{marginLeft: '20px'}} href="/hooks">
-                Hooks
+              <Dropdown.Item style={{marginLeft: '20px'}} href="/overview">
+                Overview
               </Dropdown.Item>
-              <Dropdown.Item style={{marginLeft: '20px'}} href="/about">
-                About
+              <Dropdown.Item style={{marginLeft: '20px'}} href="/profile">
+                Profile
               </Dropdown.Item>
               <Dropdown.Item style={{marginLeft: '20px'}} href="#/action-3">
-                Contact
+                SignOut
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

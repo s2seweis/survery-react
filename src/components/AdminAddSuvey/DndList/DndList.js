@@ -3,8 +3,6 @@ import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 
 const DndList = (props) => {
-    // console.log("line:700", props);
-    // console.log("line:701", props.characters);
   return (
     <div>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Question (props) {
-  console.log("line:100",props);
   return (
     <div className="form-container-grey">
       <h4>Questions:</h4>
@@ -22,6 +21,7 @@ function Question (props) {
               type="text"
               name="name"
               value={element.name}
+              className="green-border-input"
               onChange={e => props.onElementChange (e, index)}
             />
           </label>
@@ -32,6 +32,7 @@ function Question (props) {
               type="text"
               name="title"
               value={element.title}
+              className="green-border-input"
               onChange={e => props.onElementChange (e, index)}
             />
           </label>

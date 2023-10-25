@@ -1,0 +1,17 @@
+.takenSurvey-container{
+    height: 100px;
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 90%;
+}
+
+.takenSurvey-main{
+    display: block;
+    justify-content: center;
+    display: flex;
+}
+
+.survey-results{
+    margin: auto;
+}

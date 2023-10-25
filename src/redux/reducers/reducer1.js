@@ -1,6 +1,7 @@
 // reducer.js
 import {
   ADD_DATA,
+  ADD_DATA_ADMIN,
   UPDATE_OBJECT,
   DELETE_OBJECT,
   SET_OBJECTS,
@@ -14,6 +15,13 @@ const initialState = {
 const rootReducer1 = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DATA:
+      return {
+        ...state,
+        // data: [...state.data, action.payload],
+        objects: [...state.objects, action.payload],
+      };
+
+    case ADD_DATA_ADMIN:
       return {
         ...state,
         // data: [...state.data, action.payload],

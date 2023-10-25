@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Comment = props => {
-  // console.log("line:900", props);
   return (
     <div className="form-container">
       <h4>Comments:</h4>
@@ -13,6 +12,7 @@ const Comment = props => {
               type="text"
               name="name"
               value={element.name}
+              className="green-border-input"
               onChange={e => props.onElementChange2 (e, index)}
             />
           </label>
@@ -23,6 +23,7 @@ const Comment = props => {
               type="text"
               name="title"
               value={element.title}
+              className="green-border-input"
               onChange={e => props.onElementChange2 (e, index)}
             />
           </label>

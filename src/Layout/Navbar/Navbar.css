@@ -143,7 +143,14 @@ Navbar
   border: var(--main-color, #1ab394) !important;
  }
 
+#dropdown-basic{
+  /* border: var(--main-color, white) !important; */
+}
 
+.dropdown-menu{
+  background-color: white !important;
+  border: 1px solid var(--border-color, #e7e7e7) !important;
+}
 
 
 

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
 const RestForm = props => {
-  console.log ('line:200', props);
 
   const initialElement = {
     type: '',
@@ -17,7 +16,6 @@ const RestForm = props => {
   const [surveyData, setSurveyData] = useState ({
     initialSurvey,
   });
-  console.log ('line:300', surveyData);
 
   const data500 = {
     title: '',
@@ -73,7 +71,7 @@ const RestForm = props => {
     <div className="form-container">
       <div className="element-container-1">
 
-        <h2>Survey Form</h2>
+        <h2 style={{margin:"0px 0px 0px 0px"}}>Survey Form</h2>
         <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmit}>
           <div className='label'>
             <label>

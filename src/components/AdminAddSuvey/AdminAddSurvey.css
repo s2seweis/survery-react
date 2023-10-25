@@ -26,7 +26,7 @@ list-style-type: none;
 }
 
 .form-container-grey {
-    margin: 0px 10px;
+    /* margin: 0px 10px; */
     background-color: #F4F4F4;
 }
 
@@ -218,6 +218,13 @@ color: var(--text-color, #6d7072);
   /* color: 3px solid var(--main-color, #1ab394); */
   border: 1px solid var(--main-color, #1ab394);
   opacity: 1;
-  margin: 15px 10px;
+  margin: 0px 10px 15px 10px;
 }
 
+h2 {
+  margin: 0p 10px !important;
+}
+
+hr{
+  margin: 5px 5px !important;
+}

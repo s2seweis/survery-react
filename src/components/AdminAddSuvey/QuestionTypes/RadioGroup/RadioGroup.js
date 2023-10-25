@@ -1,7 +1,6 @@
 import React from 'react';
 
 const RadioGroup = props => {
-  // console.log("line:310", props);
   return (
     <div className="form-container">
       <h4>Radio Group:</h4>
@@ -13,6 +12,7 @@ const RadioGroup = props => {
               type="text"
               name="name"
               value={element.name}
+              className="green-border-input"
               onChange={e => props.onElementChange4 (e, index)}
             />
           </label>
@@ -23,6 +23,7 @@ const RadioGroup = props => {
               type="text"
               name="title"
               value={element.title}
+              className="green-border-input"
               onChange={e => props.onElementChange4 (e, index)}
             />
           </label>
@@ -34,6 +35,7 @@ const RadioGroup = props => {
               name="choices"
               value={element.choices.join (', ')}
               onChange={e => props.onElementChange4 (e, index)}
+              className="green-border-input"
             />
           </label>
 

@@ -8,6 +8,11 @@ import AdminAddSurvey from './components/AdminAddSuvey/AdminAddSurvey';
 
 import Layout from './layout/Layout';
 
+import TakenSurveys from './components/Public/TakenSurveys/TakenSurvey';
+import AvailableSurveys from './components/Public/AvailableSurveys/AvailableSureys';
+
+import AvailableForm from './components/Public/AvailableSurveys/Form/AvailableForm';
+
 const AppRouter = () => {
   return (
     <Router>
@@ -19,6 +24,9 @@ const AppRouter = () => {
         <Route path="/form" element={<SurveyForm />} />
         <Route path="/form/success" element={<Success />} />
         <Route path="/admin" element={<AdminAddSurvey />} />
+        <Route path="/taken-surveys" element={<TakenSurveys />} />
+        <Route path="/available-surveys" element={<AvailableSurveys />} />
+        <Route path="/available-surveys/:dataid" element={<AvailableForm />} />
 
         <Route />
 

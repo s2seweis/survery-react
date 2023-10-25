@@ -12,15 +12,24 @@ import {useNavigate} from 'react-router-dom';
 
 import './AdminAddSurvey.css'; // Import your CSS file for styling
 
-// import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+// ###
+
+import {useDispatch} from 'react-redux';
+import {addDataAdmin} from '../../../src/redux/actions/actions';
+import {firestore} from '../../services/firebase';
+import {collection, addDoc} from 'firebase/firestore';
+
+// ###
 
 function ParentComponent () {
+
+  const dispatch = useDispatch ();
+
   // #################################################################### - Initial State
 
   const [formData, setFormData] = useState ({
     elements: [],
   });
-  // console.log ('line:1', formData.elements);
 
   const [formData2, setFormData2] = useState ({
     elements2: [],
@@ -37,12 +46,10 @@ function ParentComponent () {
   const [formData5, setFormData5] = useState ({
     elements5: [],
   });
-  // console.log ('line:800', formData);
 
   // #################################################################### - Dnd
 
   const [characters, updateCharacters] = useState ([]);
-  console.log ('line:1', characters);
 
   useEffect (
     () => {
@@ -60,12 +67,11 @@ function ParentComponent () {
           title: element.title,
           type: element.type,
           isRequired: element.isRequired,
-          choices: element.choices,
+          choices: element.choices || null,
         };
       });
 
       updateCharacters (extractedData);
-      console.log ('line:3', characters);
     },
     [formData, formData2, formData3, formData4, formData5]
   );
@@ -117,7 +123,6 @@ function ParentComponent () {
     console.log (formData2);
     console.log (formData3);
     console.log (formData4);
-    console.log ('line:322', formData5);
   };
 
   // #################################################################### - Comment
@@ -312,7 +317,6 @@ function ParentComponent () {
   const [surveyData, setSurveyData] = useState ({
     initialSurvey,
   });
-  console.log ('line:2', surveyData);
 
   
 
@@ -338,13 +342,63 @@ function ParentComponent () {
     setSurveyData (updatedSurvey);
   };
 
-  const handleSubmitForm = e => {
+  const handleSubmitForm = async e => {
     e.preventDefault ();
-    // Handle form submission logic here, using surveyData
-    // ***
-    console.log ('line:3', surveyData);
+     try {
+      // Add data to Firestore
+      const docRef = await addDoc (
+        collection (firestore, 'adminSurvey'),
+        surveyData
+      );
+
+      // Dispatch the action to add data to Redux store
+      dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
+      // dispatch(addData({ id: docRef.id, ...dataToAdd }));
+
+      console.log ('Document written with ID: ', docRef.id);
+    } catch (error) {
+      console.error ('Error adding document: ', error);
+    }
+    
+    console.log ('line:1', surveyData);
     // ***
   };
+
+
+
+  
+
+  // #################################################################### - Submit to Firestore
+
+
+  const handleSubmitForm1 = async survey => {
+
+    // const surveyData = {
+    //   ...survey.data,
+    //   title: survey1.title};
+
+    console.log ('line:2', surveyData);
+    // setSurveyResult (surveyData);
+
+
+
+    // try {
+    //   // Add data to Firestore
+    //   const docRef = await addDoc (
+    //     collection (firestore, 'adminSurvey'),
+    //     surveyData
+    //   );
+
+    //   // Dispatch the action to add data to Redux store
+    //   dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
+    //   // dispatch(addData({ id: docRef.id, ...dataToAdd }));
+
+    //   console.log ('Document written with ID: ', docRef.id);
+    // } catch (error) {
+    //   console.error ('Error adding document: ', error);
+    // }
+  };
+
 
   // #################################################################### - Back Button
 
@@ -363,7 +417,7 @@ function ParentComponent () {
 
       <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmitForm}>
 
-            <h2>Survey Form</h2>
+            <h2 style={{backgroundColor:"#F4F4F4", padding: "10px"}}>Survey Form</h2>
             <hr className='green-line-1' />
 
         <div className="form-container-1">

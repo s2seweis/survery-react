@@ -13,6 +13,7 @@ const Rating = props => {
               name="name"
               value={element.name}
               onChange={e => props.onElementChange5 (e, index)}
+              className="green-border-input"
             />
           </label>
 
@@ -23,6 +24,7 @@ const Rating = props => {
               name="title"
               value={element.title}
               onChange={e => props.onElementChange5 (e, index)}
+              className="green-border-input"
             />
           </label>
 
@@ -33,6 +35,7 @@ const Rating = props => {
               name="rateMin"
               value={element.rateMin}
               onChange={e => props.onElementChange5 (e, index)}
+              className="green-border-input"
             />
           </label>
 
@@ -43,6 +46,7 @@ const Rating = props => {
               name="rateMax"
               value={element.rateMax}
               onChange={e => props.onElementChange5 (e, index)}
+              className="green-border-input"
             />
           </label>
 

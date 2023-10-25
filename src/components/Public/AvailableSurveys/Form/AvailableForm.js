@@ -1,21 +1,27 @@
 import React, {useState} from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
+import {useDispatch, useSelector} from 'react-redux';
 
-import {useDispatch} from 'react-redux';
-import {addData} from '../../redux/actions/actions';
-import {firestore} from '../../services/firebase';
+import {addData} from '../../../../redux/actions/actions';
+import {firestore} from '../../../../services/firebase';
 
 import {collection, addDoc} from 'firebase/firestore';
-import survey1 from '../../assets/data/survey1';
-import './SurveyForm.css';
+import survey1 from '../../../../assets/data/survey1';
+import './AvailableForm.css';
 
-const SurveyForm = () => {
+const AvailableForm = () => {
+
+
+  const surveyDataFromRedux = useSelector (state => state.data.surveyData);
+  console.log("line:100", surveyDataFromRedux);
+
+
   const goBack = () => {
     window.history.back (); // Go back to the previous page using window.history
   };
 
-  console.log("line:100", survey1.title);
+  console.log("line:101", survey1.title);
 
   const [surveyResult, setSurveyResult] = useState (null);
   console.log ('line:1', surveyResult);
@@ -78,4 +84,4 @@ const SurveyForm = () => {
   );
 };
 
-export default SurveyForm;
+export default AvailableForm;
