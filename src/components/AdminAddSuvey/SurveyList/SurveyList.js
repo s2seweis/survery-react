@@ -2,18 +2,14 @@ import React, {useEffect} from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import {useDispatch, useSelector} from 'react-redux';
-import {collection, getDocs} from 'firebase/firestore';
+import {collection, getDocs, doc, deleteDoc} from 'firebase/firestore';
 import {setSurveyData} from '../../../redux/actions/actions';
 import {firestore} from '../../../services/firebase';
 import survey1 from '../../../assets/data/survey1';
-import './AvailableSurveys.css';
-import { Link } from 'react-router-dom';
+import './SurveyList.css';
+import {Link} from 'react-router-dom';
 
-
-
-const AvailableSurveys = () => {
-
-    
+const SurveyList = () => {
   const dispatch = useDispatch ();
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
   console.log ('line:100', surveyDataFromRedux);
@@ -45,9 +41,22 @@ const AvailableSurveys = () => {
     window.history.back ();
   };
 
-  const onCompleteSurvey = async survey => {
-    // Handle survey completion logic if needed
+//   ###
+
+const handleDeleteSurvey = async (surveyId) => {
+    try {
+      // Delete survey data from Firestore
+      await deleteDoc(doc(firestore, 'adminSurvey', surveyId));
+
+      // Remove survey data from Redux store
+      const updatedSurveyData = surveyDataFromRedux.filter(data => data.id !== surveyId);
+      dispatch(setSurveyData(updatedSurveyData));
+    } catch (error) {
+      console.error('Error deleting survey:', error);
+    }
   };
+
+//   ###
 
   return (
     <div className="survey-content">
@@ -66,10 +75,16 @@ const AvailableSurveys = () => {
                   <div>{data.name}</div>
                   <div>{data.id}</div>
                   <div>{data.title}</div>
-                  {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
                   <button className="btn1 mr-2">
-                    {/* <Link to={`/home`}>Take the Survey</Link> */}
-                    <Link to={`/available-surveys/${data.id}`}>Take the Suvey</Link>
+                    <Link to={`/admin/available-surveys/${data.id}`}>
+                      Edit the Suvey
+                    </Link>
+                  </button>
+                  <button
+                    className="btn1"
+                    onClick={() => handleDeleteSurvey (data.id)}
+                  >
+                    Delete Survey
                   </button>
                 </div>
               ))}
@@ -80,4 +95,4 @@ const AvailableSurveys = () => {
   );
 };
 
-export default AvailableSurveys;
+export default SurveyList;

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Comment = props => {
+const Comment = (props) => {
   return (
     <div className="form-container">
       <h4>Comments:</h4>
-      {props.elements2.map ((element, index) => (
+      {props.elements2?.map ((element, index) => (
         <div key={index} className="element-container">
           <label className='label'>
             Name:

@@ -33,7 +33,7 @@ const RadioGroup = props => {
             <input
               type="text"
               name="choices"
-              value={element.choices.join (', ')}
+              value={element.choices?.join (', ')}
               onChange={e => props.onElementChange4 (e, index)}
               className="green-border-input"
             />

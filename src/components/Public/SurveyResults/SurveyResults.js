@@ -3,16 +3,16 @@ import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {addData} from '../../../../redux/actions/actions';
-import {firestore} from '../../../../services/firebase';
+import {addData} from '../../../redux/actions/actions';
+import {firestore} from '../../../services/firebase';
 
 import {collection, addDoc} from 'firebase/firestore';
-import survey1 from '../../../../assets/data/survey1';
-import './AvailableForm.css';
+import survey1 from '../../../assets/data/survey1';
+import './SurveyResults.css';
 
 import { useParams } from 'react-router-dom';
 
-const AvailableForm = () => {
+const SurveyResults = () => {
   const { dataid } = useParams();
   console.log("line:100", dataid);
 
@@ -89,13 +89,18 @@ const AvailableForm = () => {
         </button>
 
       <div className="survey-form">
+      {/* <pre>{JSON.stringify (surveys, null, 2)}</pre> */}
+
         {/* <Survey.Survey json={surveyJSON} onComplete={onCompleteSurvey} /> */}
-        <Survey.Survey json={surveys} onComplete={onCompleteSurvey} />
+        {/* <Survey.Survey json={surveys} onComplete={onCompleteSurvey} /> */}
         {/* <Survey.Survey json={survey1} onComplete={onCompleteSurvey} /> */}
-        {surveyResult &&
+        {surveys &&
           <div className="survey-results">
-            <h3>Summay of your Survey:</h3>
-            <pre>{JSON.stringify (surveyResult, null, 2)}</pre>
+            {/* <h2>{surveys.title}</h2> */}
+            {/* <h3>Summay of your Survey:</h3> */}
+            <h3>Title of the Survey: {` ${surveys.title}!`}</h3>
+            <h3>Summary Answers:</h3>
+            <pre style={{width:"90%", margin:"auto"}}>{JSON.stringify (surveys, null, 2)}</pre>
           </div>}
 
 
@@ -104,4 +109,4 @@ const AvailableForm = () => {
   );
 };
 
-export default AvailableForm;
+export default SurveyResults;

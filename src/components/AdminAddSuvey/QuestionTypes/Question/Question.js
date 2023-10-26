@@ -4,7 +4,7 @@ function Question (props) {
   return (
     <div className="form-container-grey">
       <h4>Questions:</h4>
-      {props.elements.map ((element, index) => (
+      {props.elements?.map ((element, index) => (
         <div key={index} className="element-container">
           {/* <label>
               Type:
