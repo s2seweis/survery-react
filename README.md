@@ -23,16 +23,18 @@ This project is a simple survey application built using React for the front-end 
 Happy surveying! 📝✨
 
 ## Coming: 
-1. Add Admin & User Routes 
-2. Admin Area 
-3. Area for Chart.js
-4. Auth
-5. Results for the Survey/User
-6. Drag & Drop (DnD)
+1. Add Admin & User Routes X
+2. Admin Area X
+3. Area for Chart.js X
+4. Auth with firebase, coming soon!!!
+5. Results for the Survey/User X
+6. Drag & Drop (DnD) X
 https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
 3:02-5:28 -done-
-7. Build a form for add JSON Form Data and make it flexible
-8. "drag and drop for a from for reorder the questions react give me an example"
+7. Build a form for add JSON Form Data and make it flexible X
+8. "drag and drop for a from for reorder the questions react give me an example" X
+9. Delete/ Edit/ Add Surveys working 
+10. Add property if user took already the survey it should no more be available for him 
 
 
 folder structure: 

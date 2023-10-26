@@ -1,3 +1,8 @@
+import { firestore } from '../../../src/services/firebase';
+import { doc, updateDoc } from 'firebase/firestore';
+
+
+
 // actions.js
 // export const ADD_DATA = 'ADD_DATA';
 
@@ -59,3 +64,17 @@ export const setSurveyData = dataWithIds => ({
   type: SET_SURVEY_DATA_ADMIN,
   payload: dataWithIds,
 });
+
+
+export const updateDataAdmin = (docId, updatedData) => {
+  return async (dispatch) => {
+    try {
+      await updateDoc(doc(firestore, 'adminSurvey', docId), updatedData);
+
+      // Dispatch an action indicating that the document has been updated
+      dispatch({ type: 'DATA_UPDATED', payload: { docId, updatedData } });
+    } catch (error) {
+      console.error('Error updating document: ', error);
+    }
+  };
+};

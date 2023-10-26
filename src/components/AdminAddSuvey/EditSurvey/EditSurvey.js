@@ -15,7 +15,7 @@ import './EditSurvey.css'; // Import your CSS file for styling
 // ###
 
 import {useDispatch, useSelector} from 'react-redux';
-import {addDataAdmin} from '../../../redux/actions/actions';
+import {addDataAdmin, updateDataAdmin} from '../../../redux/actions/actions';
 import {firestore} from '../../../services/firebase';
 import {collection, addDoc, updateDoc} from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
@@ -34,6 +34,7 @@ function EditSurvey () {
 
   const [surveys, setSurveys] = useState({});
   console.log("line:1", surveys.title);
+  console.log("line:1.1", surveys);
   
   
   useEffect (
@@ -393,6 +394,7 @@ function EditSurvey () {
   const [surveyData, setSurveyData] = useState ({
     initialSurvey,
   });
+  console.log("line:200", surveyData);
 
   
 
@@ -418,26 +420,41 @@ function EditSurvey () {
     setSurveyData (updatedSurvey);
   };
 
-  const handleSubmitForm = async e => {
-    e.preventDefault ();
-     try {
-      // Add data to Firestore
-      const docRef = await addDoc (
-        collection (firestore, 'adminSurvey'),
-        surveyData
-      );
+//   const handleSubmitForm = async e => {
+//     e.preventDefault ();
+//      try {
+//       // Add data to Firestore
+//       const docRef = await addDoc (
+//         collection (firestore, 'adminSurvey'),
+//         surveyData
+//       );
 
-      // Dispatch the action to add data to Redux store
-      dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
-      // dispatch(addData({ id: docRef.id, ...dataToAdd }));
+//       // Dispatch the action to add data to Redux store
+//       dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
+//       // dispatch(addData({ id: docRef.id, ...dataToAdd }));
 
-      console.log ('Document written with ID: ', docRef.id);
-    } catch (error) {
-      console.error ('Error adding document: ', error);
-    }
+//       console.log ('Document written with ID: ', docRef.id);
+//     } catch (error) {
+//       console.error ('Error adding document: ', error);
+//     }
     
-    console.log ('line:1', surveyData);
-    // ***
+//     console.log ('line:100', surveyData);
+//     // ***
+//   };
+
+ 
+
+
+const handleSubmitForm = async (e) => {
+    e.preventDefault();
+    try {
+      // Update data in Firestore
+      await dispatch(updateDataAdmin(dataid, surveyData));
+
+      console.log('Document updated successfully');
+    } catch (error) {
+      console.error('Error updating document: ', error);
+    }
   };
 
 
@@ -583,7 +600,7 @@ function EditSurvey () {
           </div>
           <div className='submit-form' style={{}}>
             <button style={{background: '#45a049'}} type="submit">
-              Submit Form
+              Update Survey
             </button>
           </div>
 

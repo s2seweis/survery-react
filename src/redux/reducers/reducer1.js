@@ -53,6 +53,17 @@ const rootReducer1 = (state = initialState, action) => {
         ...state,
         document: action.payload,
       };
+
+      case 'DATA_UPDATED':
+      const { docId, updatedData } = action.payload;
+      // Update the specific document in the state with the updated data
+      return {
+        ...state,
+        [docId]: {
+          ...state[docId],
+          ...updatedData,
+        },
+      };
     // ###
 
 

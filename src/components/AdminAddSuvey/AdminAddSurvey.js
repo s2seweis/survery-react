@@ -68,6 +68,11 @@ function ParentComponent () {
           type: element.type,
           isRequired: element.isRequired,
           choices: element.choices || null,
+          // ###
+          // missing from rating!!!
+          rateMin: element.rateMin || null,
+          rateMax: element.rateMax || null
+          // ###
         };
       });
 
@@ -317,6 +322,7 @@ function ParentComponent () {
   const [surveyData, setSurveyData] = useState ({
     initialSurvey,
   });
+  console.log("line:500", surveyData);
 
   
 
