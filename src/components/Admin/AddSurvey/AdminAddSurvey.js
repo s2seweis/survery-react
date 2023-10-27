@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import Question from './QuestionTypes/Question/Question';
-import Comment from './QuestionTypes/Comment/Comment';
-import Checkbox from './QuestionTypes/CheckBox/CheckBox';
-import RadioGroup from './QuestionTypes/RadioGroup/RadioGroup';
-import Rating from './QuestionTypes/Rating/Rating';
-import RestForm from './RestForm/RestForm';
+import Question from '../QuestionTypes/Question/Question';
+import Comment from '../QuestionTypes/Comment/Comment';
+import Checkbox from '../QuestionTypes/CheckBox/CheckBox';
+import RadioGroup from '../QuestionTypes/RadioGroup/RadioGroup';
+import Rating from '../QuestionTypes/Rating/Rating';
+import RestForm from '../RestForm/RestForm';
 
-import DndList from './DndList/DndList';
+import DndList from '../DndList/DndList';
 
 import {useNavigate} from 'react-router-dom';
 
@@ -15,8 +15,8 @@ import './AdminAddSurvey.css'; // Import your CSS file for styling
 // ###
 
 import {useDispatch} from 'react-redux';
-import {addDataAdmin} from '../../../src/redux/actions/actions';
-import {firestore} from '../../services/firebase';
+import {addDataAdmin} from '../../../redux/actions/actions';
+import {firestore} from '../../../services/firebase';
 import {collection, addDoc} from 'firebase/firestore';
 
 // ###
@@ -410,16 +410,12 @@ function ParentComponent () {
 
   const navigate = useNavigate ();
 
-  const goBack = () => {
-    navigate (-1); // This function will navigate back to the previous page in the history stack
-  };
+ 
 
   return (
     <div>
 
-      <button className='go-back'  onClick={goBack}>
-        Go Back
-      </button>
+    
 
       <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmitForm}>
 

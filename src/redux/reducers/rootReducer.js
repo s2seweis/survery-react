@@ -6,10 +6,13 @@ import storage from 'redux-persist/lib/storage';
 
 import rootReducer1 from './reducer1';
 import rootReducer2 from './reducer2';
+import authReducer from './auth';
+
 
 const rootReducer = combineReducers({
   survey: rootReducer1,
-  data: rootReducer2
+  data: rootReducer2,
+  auth: authReducer
 });
 
 const persistConfig = {

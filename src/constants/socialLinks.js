@@ -10,6 +10,7 @@ import {
   FaYoutube
   
 } from "react-icons/fa"
+import { GrLogout } from "react-icons/gr"
 
 
 
@@ -19,19 +20,19 @@ import {
 const data = [
   {
     id: 1,
-    icon: <FaFacebookSquare className="social-icon"></FaFacebookSquare>,
-    url: "https://www.facebook.com/people/The-Solace-Life/100090725413897/?mibextid=LQQJ4d",
+    icon: <GrLogout className="social-icon"></GrLogout>,
+    url: "/login",
   },
   // {
   //   id: 2,
   //   icon: <FaYoutube className="social-icon"></FaYoutube>,
   //   url: "https://www.youtube.com/@Thesolacelife",
   // },
-  {
-    id: 3,
-    icon: <FaGithub className="social-icon"></FaGithub>,
-    url: "https://www.tiktok.com/",
-  },
+  // {
+  //   id: 3,
+  //   icon: <FaGithub className="social-icon"></FaGithub>,
+  //   url: "https://www.tiktok.com/",
+  // },
   // {
   //   id: 4,
   //   icon: <FaBehanceSquare className="social-icon"></FaBehanceSquare>,

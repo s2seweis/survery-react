@@ -1,56 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import Footer from './Footer/Footer';
 import Navbar from './Navbar/Navbar';
 import './Layout.css';
 import Sidebar from './Sidebar/Sidebar';
 
-
-
-const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [show, setShow] = useState(false);
-  const [sidebar, setSidebar] = useState(false);
-  const [visible, setVisible] = useState(true);
+const Layout = ({children}) => {
+  const [isOpen, setIsOpen] = useState (false);
+  const [show, setShow] = useState (false);
+  const [sidebar, setSidebar] = useState (false);
+  const [visible, setVisible] = useState (true);
   const [style, setStyle] = useState ('overlay');
 
-
-  useEffect(() => {
+  useEffect (() => {
     let lastScrollTop = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollTop = window.scrollY;
-      setVisible(currentScrollTop <= 100 || currentScrollTop < lastScrollTop);
+      setVisible (currentScrollTop <= 100 || currentScrollTop < lastScrollTop);
       lastScrollTop = currentScrollTop <= 100 ? 0 : currentScrollTop;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener ('scroll', handleScroll);
+    return () => window.removeEventListener ('scroll', handleScroll);
   }, []);
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+    setIsOpen (!isOpen);
     // Add your logic for setting styles if needed
     setStyle ('overlay2');
   };
 
   const toggleHideSidebar = () => {
-    setIsOpen(!isOpen);
+    setIsOpen (!isOpen);
     // Add your logic for setting styles if needed
     setStyle ('overlay');
   };
 
-  const showSidebar = () => {
-    setSidebar(!sidebar);
-    // Add your logic for setting styles if needed
+  // const showSidebar = () => {
+  //   setSidebar (!sidebar);
+  //   // Add your logic for setting styles if needed
+  // };
+
+  const goBack = () => {
+    window.history.back ();
   };
 
   return (
-    <div className='layout-container'>
+    <div className="layout-container">
       {/* Your overlay or other elements */}
-      <div className={visible ? 'visible-style' : 'hidden-style'} onClick={toggleHideSidebar} />
-      
+      <div
+        className={visible ? 'visible-style' : 'hidden-style'}
+        onClick={toggleHideSidebar}
+      />
+
       <div className={style} onClick={toggleHideSidebar} />
-      <div className='layout-content'>
+      <div className="layout-content">
         <Sidebar
           isOpen={isOpen}
           toggleSidebar={toggleSidebar}
@@ -59,12 +63,15 @@ const Layout = ({ children }) => {
         <Navbar
           isOpen={isOpen}
           toggleSidebar={toggleSidebar}
-          handleShow={() => setShow(true)}
+          handleShow={() => setShow (true)}
           sidebar={sidebar}
           setSidebar={setSidebar}
           toggleHideSidebar={toggleHideSidebar}
           visible={visible}
         />
+        <button className="go-back" onClick={goBack}>
+          Go Back
+        </button>
         {children}
       </div>
       <Footer />

@@ -37,37 +37,32 @@ const SurveyList = () => {
     [dispatch]
   );
 
-  const goBack = () => {
-    window.history.back ();
-  };
+  //   ###
 
-//   ###
-
-const handleDeleteSurvey = async (surveyId) => {
+  const handleDeleteSurvey = async surveyId => {
     try {
       // Delete survey data from Firestore
-      await deleteDoc(doc(firestore, 'adminSurvey', surveyId));
+      await deleteDoc (doc (firestore, 'adminSurvey', surveyId));
 
       // Remove survey data from Redux store
-      const updatedSurveyData = surveyDataFromRedux.filter(data => data.id !== surveyId);
-      dispatch(setSurveyData(updatedSurveyData));
+      const updatedSurveyData = surveyDataFromRedux.filter (
+        data => data.id !== surveyId
+      );
+      dispatch (setSurveyData (updatedSurveyData));
     } catch (error) {
-      console.error('Error deleting survey:', error);
+      console.error ('Error deleting survey:', error);
     }
   };
 
-//   ###
+  //   ###
 
   return (
     <div className="survey-content">
-      <button className="go-back" onClick={goBack}>
-        Go Back
-      </button>
 
       <div className="survey-form">
         {surveyDataFromRedux &&
           <div className="survey-results">
-            <h3>Survey Data from Redux Store:</h3>
+            {/* <h3>Survey Data from Redux Store:</h3> */}
             <h3>Available Surveys:</h3>
             <div className="takenSurvey-main">
               {surveyDataFromRedux.map ((data, index) => (

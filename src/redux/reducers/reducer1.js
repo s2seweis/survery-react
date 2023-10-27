@@ -1,4 +1,3 @@
-// reducer.js
 import {
   ADD_DATA,
   ADD_DATA_ADMIN,
@@ -17,14 +16,12 @@ const rootReducer1 = (state = initialState, action) => {
     case ADD_DATA:
       return {
         ...state,
-        // data: [...state.data, action.payload],
         objects: [...state.objects, action.payload],
       };
 
     case ADD_DATA_ADMIN:
       return {
         ...state,
-        // data: [...state.data, action.payload],
         objects: [...state.objects, action.payload],
       };
 

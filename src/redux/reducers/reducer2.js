@@ -1,4 +1,3 @@
-// reducer.js
 import { SET_SURVEY_DATA } from '../actions/actions';
 import { SET_SURVEY_DATA_ADMIN } from '../actions/actions';
 

@@ -8,6 +8,8 @@ import * as GrIcons from 'react-icons/gr';
 import * as CiIcons from 'react-icons/ci';
 import * as GiIcons from 'react-icons/gi';
 
+import * as CgIcons from 'react-icons/cg';
+import * as FcIcons from 'react-icons/fc';
 
 // ### JSON Object
 export const SidebarData = [
@@ -15,21 +17,48 @@ export const SidebarData = [
     title: 'Home',
     path: '/',
     icon: <AiIcons.AiFillHome />,
-    // iconClosed: <RiIcons.RiArrowDownSFill />,
-    // iconOpened: <RiIcons.RiArrowUpSFill />,
+  },
+  {
+    title: 'Profile',
+    path: '/profile',
+    icon: <CgIcons.CgProfile />,
+  },
+  {
+    title: 'Help',
+    path: '/help',
+    icon: <GrIcons.GrContact />,
+  },
+  {
+    title: 'Take a Survey',
+    // path: '/',
+    icon: <IoIcons.IoIosPaper />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
 
-    // subNav: [
-    //   {
-    //     title: 'Users',
-    //     path: '/overview/users',
-    //     icon: <IoIcons.IoIosPaper />
-    //   },
-    //   {
-    //     title: 'Revenue',
-    //     path: '/overview/revenue',
-    //     icon: <IoIcons.IoIosPaper />
-    //   }
-    // ]
+    subNav: [
+      {
+        title: 'Available Surveys',
+        path: '/available-surveys',
+        icon: <FcIcons.FcSurvey />,
+        cName: 'sub-nav',
+      },
+      {
+        title: 'Taken Results',
+        path: '/taken-surveys',
+        icon: <FcIcons.FcSurvey />,
+
+      }
+    ],
+  },
+
+ 
+];
+
+export const SidebarDataAdmin = [
+  {
+    title: 'Home',
+    path: '/',
+    icon: <AiIcons.AiFillHome />,
   },
   {
     title: 'Hooks',
@@ -43,46 +72,37 @@ export const SidebarData = [
         title: 'useEffect',
         path: '/hooks/#section1',
         icon: <GiIcons.GiPirateHook />,
-        cName: 'sub-nav'
+        cName: 'sub-nav',
       },
       {
         title: 'useRef',
         path: '/hooks/#section2',
-        icon: <GiIcons.GiPirateHook />
+        icon: <GiIcons.GiPirateHook />,
       },
       {
         title: 'useMemo',
         path: '/hooks/#section3',
         icon: <GiIcons.GiPirateHook />,
-        cName: 'sub-nav'
+        cName: 'sub-nav',
       },
       {
         title: 'useCallback',
         path: '/hooks/#section4',
-        icon: <GiIcons.GiPirateHook />
+        icon: <GiIcons.GiPirateHook />,
       },
       {
         title: 'Custom Hooks',
         path: '/hooks/#section5',
-        icon: <GiIcons.GiPirateHook />
+        icon: <GiIcons.GiPirateHook />,
       },
       {
         title: 'useContext',
         path: '/hooks/#section6',
-        icon: <GiIcons.GiPirateHook />
-      }
-    ]
+        icon: <GiIcons.GiPirateHook />,
+      },
+    ],
   },
-  // {
-  //   title: 'Products',
-  //   path: '/products',
-  //   icon: <FaIcons.FaCartPlus />
-  // },
-  // {
-  //   title: 'Team',
-  //   path: '/team',
-  //   icon: <IoIcons.IoMdPeople />
-  // },
+
   {
     title: 'About',
     // path: '/messages',
@@ -95,23 +115,18 @@ export const SidebarData = [
       {
         title: 'About',
         path: '/about',
-        icon: <FaIcons.FaHatWizard />
+        icon: <FaIcons.FaHatWizard />,
       },
       {
         title: 'Contact',
         path: '/contact',
-        icon: <GrIcons.GrContact />
+        icon: <GrIcons.GrContact />,
       },
       {
         title: 'Copyright',
         path: '/copyright',
-        icon: <FaIcons.FaCopyright />
-      }
-    ]
+        icon: <FaIcons.FaCopyright />,
+      },
+    ],
   },
-  // {
-  //   title: 'Support',
-  //   path: '/support',
-  //   icon: <IoIcons.IoMdHelpCircle />
-  // }
 ];

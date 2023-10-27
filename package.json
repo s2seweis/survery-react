@@ -25,7 +25,8 @@
     "survey-react": "^1.6.33",
     "web-vitals": "^2.1.4",
     "react-chartjs-2": "^3.0.3",
-    "chart.js": "^3.7.0"
+    "chart.js": "^3.7.0",
+    "antd": "^4.18.2"
   },
 
   "scripts": {

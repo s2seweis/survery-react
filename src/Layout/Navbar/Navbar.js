@@ -93,9 +93,9 @@ const Navbar = ({
             </Dropdown.Toggle>
 
             <Dropdown.Menu style={{width: '-webkit-fill-available'}}>
-              <Dropdown.Item style={{marginLeft: '20px'}} href="/overview">
+              {/* <Dropdown.Item style={{marginLeft: '20px'}} href="/overview">
                 Overview
-              </Dropdown.Item>
+              </Dropdown.Item> */}
               <Dropdown.Item style={{marginLeft: '20px'}} href="/profile">
                 Profile
               </Dropdown.Item>

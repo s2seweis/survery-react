@@ -15,9 +15,9 @@ import './EditSurvey.css'; // Import your CSS file for styling
 // ###
 
 import {useDispatch, useSelector} from 'react-redux';
-import {addDataAdmin, updateDataAdmin} from '../../../redux/actions/actions';
-import {firestore} from '../../../services/firebase';
-import {collection, addDoc, updateDoc} from 'firebase/firestore';
+import { updateDataAdmin } from '../../../redux/actions/actions';
+// import {firestore} from '../../../services/firebase';
+// import {collection, addDoc, updateDoc} from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 
 
@@ -31,6 +31,7 @@ function EditSurvey () {
   const dispatch = useDispatch ();
 
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
+  console.log("line:100", surveyDataFromRedux);
 
   const [surveys, setSurveys] = useState({});
   console.log("line:1", surveys.title);
@@ -145,6 +146,8 @@ function EditSurvey () {
           type: element.type,
           isRequired: element.isRequired,
           choices: element.choices || null,
+          rateMax: element.rateMax || null,
+          rateMin: element.rateMin || null
         };
       });
 
@@ -380,11 +383,11 @@ function EditSurvey () {
 
   // #################################################################### - Rest Form
 
-  const initialElement = {
-    type: '',
-    label: '',
-    // Add more properties for the element as needed
-  };
+  // const initialElement = {
+  //   type: '',
+  //   label: '',
+  //   // Add more properties for the element as needed
+  // };
 
   const initialSurvey = {
     title: characters.title || 'About your workplace',
@@ -420,93 +423,30 @@ function EditSurvey () {
     setSurveyData (updatedSurvey);
   };
 
-//   const handleSubmitForm = async e => {
-//     e.preventDefault ();
-//      try {
-//       // Add data to Firestore
-//       const docRef = await addDoc (
-//         collection (firestore, 'adminSurvey'),
-//         surveyData
-//       );
-
-//       // Dispatch the action to add data to Redux store
-//       dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
-//       // dispatch(addData({ id: docRef.id, ...dataToAdd }));
-
-//       console.log ('Document written with ID: ', docRef.id);
-//     } catch (error) {
-//       console.error ('Error adding document: ', error);
-//     }
-    
-//     console.log ('line:100', surveyData);
-//     // ***
-//   };
-
- 
-
-
-const handleSubmitForm = async (e) => {
-    e.preventDefault();
-    try {
-      // Update data in Firestore
-      await dispatch(updateDataAdmin(dataid, surveyData));
-
-      console.log('Document updated successfully');
-    } catch (error) {
-      console.error('Error updating document: ', error);
-    }
-  };
-
-
-
-  
-
   // #################################################################### - Submit to Firestore
-
-
-  const handleSubmitForm1 = async survey => {
-
-    // const surveyData = {
-    //   ...survey.data,
-    //   title: survey1.title};
-
-    console.log ('line:2', surveyData);
-    // setSurveyResult (surveyData);
-
-
-
-    // try {
-    //   // Add data to Firestore
-    //   const docRef = await addDoc (
-    //     collection (firestore, 'adminSurvey'),
-    //     surveyData
-    //   );
-
-    //   // Dispatch the action to add data to Redux store
-    //   dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
-    //   // dispatch(addData({ id: docRef.id, ...dataToAdd }));
-
-    //   console.log ('Document written with ID: ', docRef.id);
-    // } catch (error) {
-    //   console.error ('Error adding document: ', error);
-    // }
-  };
-
-
+  
+  const handleSubmitForm = async (e) => {
+      e.preventDefault();
+      try {
+        // Update data in Firestore
+        await dispatch(updateDataAdmin(dataid, surveyData));
+  
+        console.log('Document updated successfully');
+      } catch (error) {
+        console.error('Error updating document: ', error);
+      }
+    };
+  
   // #################################################################### - Back Button
 
   const navigate = useNavigate ();
 
-  const goBack = () => {
-    navigate (-1); // This function will navigate back to the previous page in the history stack
-  };
+
 
   return (
     <div>
 
-      <button className='go-back'  onClick={goBack}>
-        Go Back
-      </button>
+    
 
       <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmitForm}>
 

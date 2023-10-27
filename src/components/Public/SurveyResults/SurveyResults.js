@@ -10,35 +10,29 @@ import {collection, addDoc} from 'firebase/firestore';
 import survey1 from '../../../assets/data/survey1';
 import './SurveyResults.css';
 
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
 const SurveyResults = () => {
-  const { dataid } = useParams();
-  console.log("line:100", dataid);
-
+  const {dataid} = useParams ();
+  console.log ('line:100', dataid);
 
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
-  console.log("line:200", surveyDataFromRedux);
+  console.log ('line:200', surveyDataFromRedux);
 
-  const [surveys, setSurveys] = useState({});
-  console.log("line:500", surveys);
+  const [surveys, setSurveys] = useState ({});
+  console.log ('line:500', surveys);
 
   useEffect (
     () => {
       if (surveyDataFromRedux.length === 0) {
         // dispatch (getAllCars ());
-        console.log("No surveys found!");
+        console.log ('No surveys found!');
       } else {
         setSurveys (surveyDataFromRedux.find (o => o.id === dataid));
       }
     },
-    [surveyDataFromRedux],
+    [surveyDataFromRedux]
   );
-
-
-  const goBack = () => {
-    window.history.back (); // Go back to the previous page using window.history
-  };
 
   // console.log("line:300", survey1.title);
 
@@ -48,10 +42,10 @@ const SurveyResults = () => {
   const dispatch = useDispatch ();
 
   const onCompleteSurvey = async survey => {
-
     const surveyData = {
       ...survey.data,
-      title: survey1.title};
+      title: survey1.title,
+    };
 
     console.log ('line:2', surveyData);
     setSurveyResult (surveyData);
@@ -83,13 +77,9 @@ const SurveyResults = () => {
 
   return (
     <div className="survey-content">
-       
-        <button className='go-back' onClick={goBack}>
-          Go Back
-        </button>
 
       <div className="survey-form">
-      {/* <pre>{JSON.stringify (surveys, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify (surveys, null, 2)}</pre> */}
 
         {/* <Survey.Survey json={surveyJSON} onComplete={onCompleteSurvey} /> */}
         {/* <Survey.Survey json={surveys} onComplete={onCompleteSurvey} /> */}
@@ -100,9 +90,10 @@ const SurveyResults = () => {
             {/* <h3>Summay of your Survey:</h3> */}
             <h3>Title of the Survey: {` ${surveys.title}!`}</h3>
             <h3>Summary Answers:</h3>
-            <pre style={{width:"90%", margin:"auto"}}>{JSON.stringify (surveys, null, 2)}</pre>
+            <pre style={{width: '90%', margin: 'auto'}}>
+              {JSON.stringify (surveys, null, 2)}
+            </pre>
           </div>}
-
 
       </div>
     </div>
