@@ -1,24 +1,3 @@
-
-// import { initializeApp } from 'firebase/app';
-// import { getFirestore} from 'firebase/firestore';
-// import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyCE-StUsOVrhMu8gCqS6pex_mZDAcXme7g',
-//   authDomain: 'survey-react-firebase.firebaseapp.com',
-//   projectId: 'survey-react-firebase',
-//   storageBucket: 'survey-react-firebase.appspot.com',
-//   messagingSenderId: '276375268607',
-//   appId: '1:276375268607:web:974a8c7cfe203e1a9fb0ca',
-// };
-
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// const firestore = getFirestore(app);
-
-// export { firestore, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut };
-
-
 // firebase.js
 
 import { initializeApp } from 'firebase/app';
@@ -36,6 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 const firestore = getFirestore(app);
 
 const registerUser = async (email, password) => {
@@ -60,13 +40,13 @@ const registerUser = async (email, password) => {
 };
 
 const checkUserExists = async (email) => {
-  const userRef = doc(collection(firestore, 'users'), email);
+  const userRef = doc(collection(db, 'users'), email);
   const userDoc = await getDoc(userRef);
   return userDoc.exists();
 };
 
 const storeUserData = async (userId, email) => {
-  const userRef = doc(collection(firestore, 'users'), userId);
+  const userRef = doc(collection(db, 'users'), userId);
   await setDoc(userRef, {
     email: email,
     // Add more user data fields as needed
@@ -91,7 +71,4 @@ const logoutUser = async () => {
   }
 };
 
-// export { auth, registerUser, loginUser, logoutUser, firestore };
-// sill need to replace the customized firsebase functions with the provided 
-export { firestore, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, loginUser, logoutUser, registerUser };
-
+export { auth, registerUser, loginUser, logoutUser, firestore };
