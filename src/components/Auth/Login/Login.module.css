@@ -37,3 +37,8 @@
     background-color: #0056b3;
   }
   
+  .a-link {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  

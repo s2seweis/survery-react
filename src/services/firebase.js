@@ -25,6 +25,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { getFirestore, collection, doc, setDoc, getDoc } from 'firebase/firestore';
 
+
 const firebaseConfig = {
     apiKey: 'AIzaSyCE-StUsOVrhMu8gCqS6pex_mZDAcXme7g',
     authDomain: 'survey-react-firebase.firebaseapp.com',
@@ -38,7 +39,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-const registerUser = async (email, password) => {
+const registerUser = async (email, name, password) => {
   try {
     // Check if a user with the provided email already exists
     const userExists = await checkUserExists(email);
@@ -51,7 +52,7 @@ const registerUser = async (email, password) => {
     const user = userCredential.user;
 
     // Store additional user data in Firestore
-    await storeUserData(user.uid, email);
+    await storeUserData(user.uid, email, name, password);
 
     return user;
   } catch (error) {
@@ -65,10 +66,14 @@ const checkUserExists = async (email) => {
   return userDoc.exists();
 };
 
-const storeUserData = async (userId, email) => {
+const storeUserData = async (userId, email, name, password) => {
   const userRef = doc(collection(firestore, 'users'), userId);
   await setDoc(userRef, {
+    userId: userId,
     email: email,
+    name: name,
+    password: password,
+    // userId: userId
     // Add more user data fields as needed
   });
 };
@@ -91,7 +96,38 @@ const logoutUser = async () => {
   }
 };
 
+// const getUserData = async (uid) => {
+//   console.log("line:2", uid);
+//   try {
+//     const userDoc = await firestore.collection('users').doc(uid).get();
+//     if (userDoc.exists) {
+//       return userDoc.data();
+//     } else {
+//       return null; // Handle the case when the user document doesn't exist
+//     }
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
+const getUserData = async (uid) => {
+  console.log("line:2", uid);
+  try {
+    const userRef = doc(collection(firestore, 'users'), uid);
+    console.log("line:3", userRef);
+    const userDoc = await getDoc(userRef);
+    console.log("line:5", userDoc);
+    if (userDoc.exists()) {
+      return userDoc.data();
+    } else {
+      return null; // Handle the case when the user document doesn't exist
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
 // export { auth, registerUser, loginUser, logoutUser, firestore };
 // sill need to replace the customized firsebase functions with the provided 
-export { firestore, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, loginUser, logoutUser, registerUser };
+export { firestore, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, loginUser, logoutUser, registerUser, getUserData };
 
