@@ -1,11 +1,10 @@
 .bar-chart-container {
     background-color: #f5f5f5;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 10px;
     text-align: center;
-    margin-top: 100px;
 }
 
 .chart-title {
@@ -19,3 +18,58 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* playground.css */
+
+.line-chart-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.chart-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.chart {
+    /* height: 400px; */
+}
+
+/* Customize the chart container */
+.chart canvas {
+    background-color: #fff; /* Chart background color */
+    border: 1px solid #ddd; /* Chart border color */
+    border-radius: 8px; /* Chart border radius */
+}
+
+/* Customize the chart legend */
+.chart .legend {
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #ddd; /* Legend border color */
+    border-radius: 8px; /* Legend border radius */
+}
+
+/* Customize the legend items */
+.chart .legend li {
+    display: inline-block;
+    margin-right: 20px;
+    color: #333; /* Legend item text color */
+}
+
+/* Customize the legend color box */
+.chart .legend li span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+/* Customize the legend text */
+.chart .legend li span + span {
+    background-color: rgba(75, 192, 192, 0.2); /* Legend item background color */
+    border: 1px solid rgba(75, 192, 192, 1); /* Legend item border color */
+}
+

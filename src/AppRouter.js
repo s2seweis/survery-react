@@ -23,14 +23,11 @@ import Login from './components/Auth/Login/Login';
 
 import AdminRoutes from './components/ProtectedRoutes/AdminRoutes';
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
-import { useSelector } from 'react-redux';
-
+import {useSelector} from 'react-redux';
 
 const AppRouter = () => {
-
-
-  const user = useSelector(state => state.user.userData); // Assuming user data is stored in Redux store
-  console.log("line:999", user);
+  const user = useSelector (state => state.user.userData); // Assuming user data is stored in Redux store
+  console.log ('line:999', user);
 
   return (
     <Router>
@@ -41,22 +38,20 @@ const AppRouter = () => {
           {/* <Route path="/" element={<Home />} /> */}
 
           <Route element={<UserRoutes user={user} />}>
-            <Route path="/" element={<Home  />} />
+            <Route path="/" element={<Home />} />
           </Route>
 
           <Route element={<AdminRoutes user={user} />}>
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin-addsurvey" element={<AdminAddSurvey />} />
+            <Route path="/admin/available-surveys" element={<SurveyList />} />
+            <Route
+              path="/admin/available-surveys/:dataid"
+              element={<EditSurvey />}
+            />
+            <Route path="/playground" element={<BarChart />} />
           </Route>
 
-          {/* Admin Routes         */}
-          {/* <Route path="/admin" element={<Admin />} /> */}
-          <Route path="/admin-addsurvey" element={<AdminAddSurvey />} />
-          <Route path="/admin/available-surveys" element={<SurveyList />} />
-          <Route
-            path="/admin/available-surveys/:dataid"
-            element={<EditSurvey />}
-          />
-          <Route path="/playground" element={<BarChart />} />
 
           {/* User Routes */}
           <Route path="/taken-surveys" element={<TakenSurveys />} />

@@ -10,7 +10,7 @@ const AdminRoutes = (user) => {
   const isAuthorized = user && (user?.user?.admin === 'admin');
   // const isAuthorized = user && (user.user === 'user' || user.admin === 'admin');
 
-  return isAuthorized ? <Outlet /> : <Navigate to="/login" />;
+  return isAuthorized ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default AdminRoutes;
