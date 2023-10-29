@@ -37,11 +37,12 @@ const Home = ({match}) => {
         <a href="/help">Help</a>
         <a href="/register">Register</a>
         <a href="/login">Login</a>
+        <a href="/profile">Profile</a>
       </div>
 
-      <div style={{marginTop:"100px"}}>
+      {/* <div style={{marginTop:"100px"}}>
       <Logout />
-      </div>
+      </div> */}
 
     </div>
   );

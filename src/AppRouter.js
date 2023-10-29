@@ -23,11 +23,14 @@ import Login from './components/Auth/Login/Login';
 
 import AdminRoutes from './components/ProtectedRoutes/AdminRoutes';
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
+import Profile from './components/Profile/Profile';
 import {useSelector} from 'react-redux';
+
+
 
 const AppRouter = () => {
   const user = useSelector (state => state.user.userData); // Assuming user data is stored in Redux store
-  console.log ('line:999', user);
+  // console.log ('line:999', user);
 
   return (
     <Router>
@@ -52,7 +55,6 @@ const AppRouter = () => {
             <Route path="/playground" element={<BarChart />} />
           </Route>
 
-
           {/* User Routes */}
           <Route path="/taken-surveys" element={<TakenSurveys />} />
           <Route path="/taken-surveys/:dataid" element={<SurveyResults />} />
@@ -65,6 +67,7 @@ const AppRouter = () => {
           <Route path="/help" element={<Help />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
 
           <Route />
 

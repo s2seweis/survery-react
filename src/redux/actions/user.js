@@ -6,3 +6,10 @@ export const setUserData = (userData) => ({
   export const clearUserData = () => ({
     type: 'CLEAR_USER_DATA'
   });
+
+  export const updateUserData = (userData) => {
+    return {
+      type: 'UPDATE_USER_DATA',
+      payload: userData
+    };
+  };

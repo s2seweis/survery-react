@@ -9,6 +9,7 @@ import '../../styles/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import classnames from 'classnames';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Logout from '../../components/Auth/Logout/Logout';
 
 const Navbar = ({
   isOpen,
@@ -96,11 +97,11 @@ const Navbar = ({
               {/* <Dropdown.Item style={{marginLeft: '20px'}} href="/overview">
                 Overview
               </Dropdown.Item> */}
-              <Dropdown.Item style={{marginLeft: '20px'}} href="/profile">
+              <Dropdown.Item style={{textAlign:"center"}} href="/profile">
                 Profile
               </Dropdown.Item>
-              <Dropdown.Item style={{marginLeft: '20px'}} href="#/action-3">
-                SignOut
+              <Dropdown.Item style={{justifyContent:"center", display:"flex"}} href="#/action-3">
+                <Logout style={{justifyContent:"center", display:"flex"}}/>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

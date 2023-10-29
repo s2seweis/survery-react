@@ -7,6 +7,7 @@ import {FaTimes} from 'react-icons/fa';
 
 import {SidebarData} from './SideBarData/SideBarData';
 import SubMenu from './SideBarData/SubMenu';
+import Logout from '../../components/Auth/Logout/Logout';
 
 import './Sidebar.css';
 
@@ -22,19 +23,15 @@ const Sidebar = ({isOpen, toggleSidebar, toggleHideSidebar}) => {
       >
         <FaTimes />
       </button>
-      <div
-        className="side-container"
-      >
+      <div className="side-container">
 
         {SidebarData.map ((item, index) => {
           return <SubMenu item={item} key={index} />;
         })}
 
-        <div
-          className="sidebar-social-links-margin"
-        >
+        <div className="sidebar-social-links-margin">
 
-          <ul className={isOpen ? 'social-links sidebar-icons' : null}>
+          {/* <ul className={isOpen ? 'social-links sidebar-icons' : null}>
             {socialLinks.map (link => {
               return (
                 <li key={link.id}>
@@ -44,7 +41,9 @@ const Sidebar = ({isOpen, toggleSidebar, toggleHideSidebar}) => {
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
+
+          <Logout />
 
         </div>
 
