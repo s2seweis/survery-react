@@ -7,7 +7,7 @@ const data = [
     {
       id: 2,
       text: "about",
-      url: "/about/",
+      url: "/",
     },
 
     // {
@@ -51,7 +51,7 @@ const data = [
     {
       id: 10,
       text: "contact",
-      url: "/contact/",
+      url: "/help",
     },
   
 

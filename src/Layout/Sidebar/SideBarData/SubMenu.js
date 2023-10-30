@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-  // color: #e1e9fc;
-  // background: #414757;
-
-
-const SidebarLink = styled.a`
+const SidebarLink = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +23,7 @@ const SidebarLabel = styled.span`
   margin-left: 16px;
 `;
 
-const DropdownLink = styled.a`
+const DropdownLink = styled(Link)`
   background: #f1f0f0;
   height: 60px;
   padding-left: 3rem;
@@ -49,7 +45,7 @@ const SubMenu = ({ item }) => {
 
   return (
     <>
-      <SidebarLink href={item.path} onClick={item.subNav && showSubnav}>
+      <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
         <div className='flex-div' style={{display:"flex"}}>
           {item.icon}
           <SidebarLabel>{item.title}</SidebarLabel>
@@ -65,7 +61,7 @@ const SubMenu = ({ item }) => {
       {subnav &&
         item.subNav.map((item, index) => {
           return (
-            <DropdownLink href={item.path} key={index}>
+            <DropdownLink to={item.path} key={index}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
             </DropdownLink>

@@ -53,7 +53,6 @@ export const SidebarData = [
 
  
 ];
-
 export const SidebarDataAdmin = [
   {
     title: 'Home',
@@ -61,7 +60,17 @@ export const SidebarDataAdmin = [
     icon: <AiIcons.AiFillHome />,
   },
   {
-    title: 'Hooks',
+    title: 'Profile',
+    path: '/profile',
+    icon: <CgIcons.CgProfile />,
+  },
+  {
+    title: 'Admin',
+    path: '/admin',
+    icon: <GrIcons.GrContact />,
+  },
+  {
+    title: 'Take a Survey',
     // path: '/',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -69,64 +78,20 @@ export const SidebarDataAdmin = [
 
     subNav: [
       {
-        title: 'useEffect',
-        path: '/hooks/#section1',
-        icon: <GiIcons.GiPirateHook />,
+        title: 'Available Surveys',
+        path: '/available-surveys',
+        icon: <FcIcons.FcSurvey />,
         cName: 'sub-nav',
       },
       {
-        title: 'useRef',
-        path: '/hooks/#section2',
-        icon: <GiIcons.GiPirateHook />,
-      },
-      {
-        title: 'useMemo',
-        path: '/hooks/#section3',
-        icon: <GiIcons.GiPirateHook />,
-        cName: 'sub-nav',
-      },
-      {
-        title: 'useCallback',
-        path: '/hooks/#section4',
-        icon: <GiIcons.GiPirateHook />,
-      },
-      {
-        title: 'Custom Hooks',
-        path: '/hooks/#section5',
-        icon: <GiIcons.GiPirateHook />,
-      },
-      {
-        title: 'useContext',
-        path: '/hooks/#section6',
-        icon: <GiIcons.GiPirateHook />,
-      },
+        title: 'Taken Results',
+        path: '/taken-surveys',
+        icon: <FcIcons.FcSurvey />,
+
+      }
     ],
   },
 
-  {
-    title: 'About',
-    // path: '/messages',
-    icon: <CiIcons.CiCircleMore />,
-
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'About',
-        path: '/about',
-        icon: <FaIcons.FaHatWizard />,
-      },
-      {
-        title: 'Contact',
-        path: '/contact',
-        icon: <GrIcons.GrContact />,
-      },
-      {
-        title: 'Copyright',
-        path: '/copyright',
-        icon: <FaIcons.FaCopyright />,
-      },
-    ],
-  },
+ 
 ];
+

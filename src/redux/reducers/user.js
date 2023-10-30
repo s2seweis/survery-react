@@ -1,5 +1,5 @@
 const initialState = {
-  userData: null
+  userData: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -7,18 +7,30 @@ const userReducer = (state = initialState, action) => {
     case 'SET_USER_DATA':
       return {
         ...state,
-        userData: action.payload
+        userData: action.payload,
       };
     case 'CLEAR_USER_DATA':
       return {
         ...state,
-        userData: null
+        userData: null,
       };
-    case 'UPDATE_USER_DATA':
-      return {
-        ...state,
-        userData: action.payload
-      };
+    // case 'UPDATE_USER_DATA':
+    //   return {
+    //     ...state,
+    //     userData: action.payload,
+    //   };
+    case 'DATA_UPDATED':
+      const {docId, updatedData} = action.payload;
+      // Check if the updated data corresponds to the current user being edited
+      if (state.userData && state.userData.userId === docId) {
+        return {
+          ...state,
+          userData: {
+            ...state.userData,
+            ...updatedData,
+          },
+        };
+      }
     default:
       return state;
   }

@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {collection, getDocs, doc, deleteDoc} from 'firebase/firestore';
 import {setSurveyData} from '../../../redux/actions/actions';
 import {firestore} from '../../../services/firebase';
-import survey1 from '../../../assets/data/survey1';
 import './SurveyList.css';
 import {Link} from 'react-router-dom';
 

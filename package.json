@@ -3,18 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^4.18.2",
     "bootstrap": "^5.2.3",
+    "chart.js": "^3.7.0",
     "classnames": "^2.3.2",
     "firebase": "^9.0.0",
     "react": "^18.0.1",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap": "^2.7.4",
+    "react-chartjs-2": "^3.0.3",
     "react-dom": "^18.0.1",
     "react-icons": "^4.11.0",
     "react-redux": "^7.2.4",
     "react-redux-firebase": "^3.9.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.7",
     "redux": "^4.2.1",
     "redux-firestore": "^2.0.1",
     "redux-logger": "^3.0.6",
@@ -23,12 +27,8 @@
     "styled-components": "^6.0.0-rc.3",
     "survey-jquery": "^1.0.94",
     "survey-react": "^1.6.33",
-    "web-vitals": "^2.1.4",
-    "react-chartjs-2": "^3.0.3",
-    "chart.js": "^3.7.0",
-    "antd": "^4.18.2"
+    "web-vitals": "^2.1.4"
   },
-
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

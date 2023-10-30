@@ -124,10 +124,7 @@ function ParentComponent () {
   const handleSubmit = e => {
     e.preventDefault ();
     // Handle form submission logic here with formData
-    console.log (formData);
-    console.log (formData2);
-    console.log (formData3);
-    console.log (formData4);
+   
   };
 
   // #################################################################### - Comment
@@ -165,7 +162,6 @@ function ParentComponent () {
   const handleSubmit2 = e => {
     e.preventDefault ();
     // Handle form submission logic here with formData
-    console.log (formData2);
   };
 
   // #################################################################### - Checkbox
@@ -212,7 +208,6 @@ function ParentComponent () {
   const handleSubmit3 = e => {
     e.preventDefault ();
     // Handle form submission logic here with formData
-    console.log (formData3);
   };
 
   // #################################################################### - Radio
@@ -256,7 +251,6 @@ function ParentComponent () {
   const handleSubmit4 = e => {
     e.preventDefault ();
     // Handle form submission logic here with formData
-    console.log (formData4);
   };
 
   // #################################################################### - Rating
@@ -303,7 +297,6 @@ function ParentComponent () {
   const handleSubmit5 = e => {
     e.preventDefault ();
     // Handle form submission logic here with formData
-    console.log (formData5);
   };
 
   // #################################################################### - Rest Form
@@ -322,7 +315,6 @@ function ParentComponent () {
   const [surveyData, setSurveyData] = useState ({
     initialSurvey,
   });
-  console.log("line:500", surveyData);
 
   
 
@@ -347,6 +339,9 @@ function ParentComponent () {
     updatedSurvey.pages[pageIndex].name = e.target.value;
     setSurveyData (updatedSurvey);
   };
+  
+  // #################################################################### - Submit to Firestore
+  const navigate = useNavigate ();
 
   const handleSubmitForm = async e => {
     e.preventDefault ();
@@ -361,54 +356,17 @@ function ParentComponent () {
       dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
       // dispatch(addData({ id: docRef.id, ...dataToAdd }));
 
-      console.log ('Document written with ID: ', docRef.id);
+      navigate ('/');
     } catch (error) {
       console.error ('Error adding document: ', error);
     }
     
-    console.log ('line:1', surveyData);
     // ***
   };
 
-
-
-  
-
-  // #################################################################### - Submit to Firestore
-
-
-  const handleSubmitForm1 = async survey => {
-
-    // const surveyData = {
-    //   ...survey.data,
-    //   title: survey1.title};
-
-    console.log ('line:2', surveyData);
-    // setSurveyResult (surveyData);
-
-
-
-    // try {
-    //   // Add data to Firestore
-    //   const docRef = await addDoc (
-    //     collection (firestore, 'adminSurvey'),
-    //     surveyData
-    //   );
-
-    //   // Dispatch the action to add data to Redux store
-    //   dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
-    //   // dispatch(addData({ id: docRef.id, ...dataToAdd }));
-
-    //   console.log ('Document written with ID: ', docRef.id);
-    // } catch (error) {
-    //   console.error ('Error adding document: ', error);
-    // }
-  };
-
-
   // #################################################################### - Back Button
 
-  const navigate = useNavigate ();
+  
 
  
 

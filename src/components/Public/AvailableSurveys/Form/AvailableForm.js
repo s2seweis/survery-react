@@ -7,10 +7,11 @@ import {addData} from '../../../../redux/actions/actions';
 import {firestore} from '../../../../services/firebase';
 
 import {collection, addDoc} from 'firebase/firestore';
-import survey1 from '../../../../assets/data/survey1';
+// import survey1 from '../../../../assets/data/survey1';
 import './AvailableForm.css';
 
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
+
 
 const AvailableForm = () => {
   const {dataid} = useParams ();
@@ -41,10 +42,12 @@ const AvailableForm = () => {
 
   const dispatch = useDispatch ();
 
+  const navigate = useNavigate ();
+
   const onCompleteSurvey = async survey => {
     const surveyData = {
       ...survey.data,
-      title: survey1.title,
+      title: surveys.title,
     };
 
     console.log ('line:2', surveyData);
@@ -70,6 +73,7 @@ const AvailableForm = () => {
       // dispatch(addData({ id: docRef.id, ...dataToAdd }));
 
       console.log ('Document written with ID: ', docRef.id);
+      navigate ('/');
     } catch (error) {
       console.error ('Error adding document: ', error);
     }
@@ -79,9 +83,7 @@ const AvailableForm = () => {
     <div className="survey-content">
 
       <div className="survey-form">
-        {/* <Survey.Survey json={surveyJSON} onComplete={onCompleteSurvey} /> */}
         <Survey.Survey json={surveys} onComplete={onCompleteSurvey} />
-        {/* <Survey.Survey json={survey1} onComplete={onCompleteSurvey} /> */}
         {surveyResult &&
           <div className="survey-results">
             <h3>Summay of your Survey:</h3>

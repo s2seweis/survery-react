@@ -26,11 +26,8 @@ import UserRoutes from './components/ProtectedRoutes/UserRoutes';
 import Profile from './components/Profile/Profile';
 import {useSelector} from 'react-redux';
 
-
-
 const AppRouter = () => {
   const user = useSelector (state => state.user.userData); // Assuming user data is stored in Redux store
-  // console.log ('line:999', user);
 
   return (
     <Router>
@@ -42,6 +39,16 @@ const AppRouter = () => {
 
           <Route element={<UserRoutes user={user} />}>
             <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/taken-surveys" element={<TakenSurveys />} />
+            <Route path="/taken-surveys/:dataid" element={<SurveyResults />} />
+            <Route path="/available-surveys" element={<AvailableSurveys />} />
+            <Route
+              path="/available-surveys/:dataid"
+              element={<AvailableForm />}
+            />
+            <Route path="/form/success" element={<Success />} />
+            <Route path="/help" element={<Help />} />
           </Route>
 
           <Route element={<AdminRoutes user={user} />}>
@@ -52,27 +59,15 @@ const AppRouter = () => {
               path="/admin/available-surveys/:dataid"
               element={<EditSurvey />}
             />
-            <Route path="/playground" element={<BarChart />} />
+            <Route path="/overview-charts" element={<BarChart />} />
           </Route>
 
-          {/* User Routes */}
-          <Route path="/taken-surveys" element={<TakenSurveys />} />
-          <Route path="/taken-surveys/:dataid" element={<SurveyResults />} />
-          <Route path="/available-surveys" element={<AvailableSurveys />} />
-          <Route
-            path="/available-surveys/:dataid"
-            element={<AvailableForm />}
-          />
-          <Route path="/form/success" element={<Success />} />
-          <Route path="/help" element={<Help />} />
+          {/* Public Routes */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
 
           <Route />
 
-          {/* ### */}
-          {/* ### */}
         </Routes>
 
       </Layout>

@@ -6,7 +6,9 @@ import {FaTiktok} from 'react-icons/fa';
 import {FaYoutube} from 'react-icons/fa';
 import {FaGithub} from 'react-icons/fa';
 
+
 import './Footer.css'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   // const currentYear = new Date ().getFullYear ();
@@ -17,18 +19,18 @@ const Footer = () => {
 
         <div className="footer-e1">
 
-          <a className="footer-e1-a" style={{}} href="/copyright">
-            Copyright
-          </a>
+          <Link className="footer-e1-a" style={{}} to="/">
+            More
+          </Link>
 
         </div>
 
         <div className="footer-e2">
-          <a className="footer-e1-a" style={{}} href="/about">About</a>
+          <Link className="footer-e1-a" style={{}} to="/">About</Link>
         </div>
 
         <div className="footer-e3">
-          <a className="footer-e1-a" style={{}} href="/contact">Contact</a>
+          <Link className="footer-e1-a" style={{}} to="/help">Contact</Link>
         </div>
 
       </div>

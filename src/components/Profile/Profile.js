@@ -8,13 +8,29 @@ const UserForm = () => {
   const dispatch = useDispatch();
   const userData = useSelector(state => state.user.userData);
   console.log("line:1", userData);
+  console.log("line:2", userData.userId);
+
+  const dataid = userData.userId
+  console.log("2.1", dataid);
 
   const [formData, setFormData] = useState(userData);
-  console.log("line:2", formData);
+  console.log("line:3", formData);
 
-  const handleFormSubmit = e => {
+  // const handleFormSubmit = e => {
+  //   e.preventDefault();
+  //   dispatch(updateUserData(formData));
+  // };
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    dispatch(updateUserData(formData));
+    try {
+      // Update data in Firestore
+      await dispatch(updateUserData(dataid, formData));
+
+      console.log('Document updated successfully');
+    } catch (error) {
+      console.error('Error updating document: ', error);
+    }
   };
 
   const handleInputChange = e => {
@@ -28,7 +44,7 @@ const UserForm = () => {
   return (
     <form className={styles.formContainer} onSubmit={handleFormSubmit}>
       <label className={styles.label}>
-        Admin:
+        User Role:
         <select
           className={styles.selectField}
           name="admin"
@@ -43,6 +59,7 @@ const UserForm = () => {
         Email:
         <input
           className={styles.inputField}
+          disabled
           type="email"
           name="email"
           value={formData.email}
@@ -63,6 +80,7 @@ const UserForm = () => {
         Password:
         <input
           className={styles.inputField}
+          disabled
           type="password"
           name="password"
           value={formData.password}

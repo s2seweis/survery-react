@@ -7,7 +7,7 @@ const AdminRoutes = (user) => {
   // console.log("line:800", user);
 
   // Check if user is logged in and has the role of "user" or "admin"
-  const isAuthorized = user && (user?.user?.admin === 'admin');
+  const isAuthorized = user && (user?.user?.user === 'admin');
   // const isAuthorized = user && (user.user === 'user' || user.admin === 'admin');
 
   return isAuthorized ? <Outlet /> : <Navigate to="/" />;

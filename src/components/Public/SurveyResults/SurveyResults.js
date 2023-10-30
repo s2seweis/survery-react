@@ -78,7 +78,7 @@ const SurveyResults = () => {
   return (
     <div className="survey-content">
 
-      <div className="survey-form">
+      <div style={{}} className="survey-form">
         {/* <pre>{JSON.stringify (surveys, null, 2)}</pre> */}
 
         {/* <Survey.Survey json={surveyJSON} onComplete={onCompleteSurvey} /> */}

@@ -1,20 +1,23 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import socialLinks from '../../constants/socialLinks';
+import { useDispatch, useSelector } from 'react-redux';
 
 import '../Sidebar/Sidebar.css';
 
-import {FaTimes} from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 
-import {SidebarData} from './SideBarData/SideBarData';
+import { SidebarData, SidebarDataAdmin } from './SideBarData/SideBarData';
 import SubMenu from './SideBarData/SubMenu';
 import Logout from '../../components/Auth/Logout/Logout';
 
 import './Sidebar.css';
 
-const Sidebar = ({isOpen, toggleSidebar, toggleHideSidebar}) => {
+const Sidebar = ({ isOpen, toggleSidebar, toggleHideSidebar }) => {
+  const userData = useSelector(state => state.user.userData);
+  const isAdmin = userData?.user === 'admin';
+
   return (
     <aside className={isOpen ? 'sidebar show-sidebar' : 'sidebar'}>
-
       <button
         className="close-btn"
         alt="close"
@@ -24,29 +27,16 @@ const Sidebar = ({isOpen, toggleSidebar, toggleHideSidebar}) => {
         <FaTimes />
       </button>
       <div className="side-container">
-
-        {SidebarData.map ((item, index) => {
-          return <SubMenu item={item} key={index} />;
-        })}
-
-        <div className="sidebar-social-links-margin">
-
-          {/* <ul className={isOpen ? 'social-links sidebar-icons' : null}>
-            {socialLinks.map (link => {
-              return (
-                <li key={link.id}>
-                  <a aria-label="link" href={link.url} className="social-link">
-                    {link.icon}
-                  </a>
-                </li>
-              );
+        {isAdmin
+          ? SidebarDataAdmin.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
+            })
+          : SidebarData.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
             })}
-          </ul> */}
-
+        <div className="sidebar-social-links-margin">
           <Logout />
-
         </div>
-
       </div>
     </aside>
   );
