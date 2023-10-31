@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Rating = props => {
   return (
@@ -76,6 +77,21 @@ const Rating = props => {
 
     </div>
   );
+};
+
+Rating.propTypes = {
+  elements5: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      rateMin: PropTypes.number.isRequired,
+      rateMax: PropTypes.number.isRequired,
+      isRequired: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
+  onElementChange5: PropTypes.func.isRequired,
+  onDeleteElement5: PropTypes.func.isRequired,
+  onAddElement5: PropTypes.func.isRequired,
 };
 
 export default Rating;

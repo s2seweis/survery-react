@@ -1,15 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import socialLinks from '../../constants/socialLinks';
-import { useDispatch, useSelector } from 'react-redux';
-
-import '../Sidebar/Sidebar.css';
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import {useSelector} from 'react-redux';
 import { FaTimes } from 'react-icons/fa';
-
 import { SidebarData, SidebarDataAdmin } from './SideBarData/SideBarData';
 import SubMenu from './SideBarData/SubMenu';
 import Logout from '../../components/Auth/Logout/Logout';
-
+import '../Sidebar/Sidebar.css';
 import './Sidebar.css';
 
 const Sidebar = ({ isOpen, toggleSidebar, toggleHideSidebar }) => {
@@ -29,17 +25,23 @@ const Sidebar = ({ isOpen, toggleSidebar, toggleHideSidebar }) => {
       <div className="side-container">
         {isAdmin
           ? SidebarDataAdmin.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })
+            return <SubMenu item={item} key={index} />;
+          })
           : SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })}
+            return <SubMenu item={item} key={index} />;
+          })}
         <div className="sidebar-social-links-margin">
           <Logout />
         </div>
       </div>
     </aside>
   );
+};
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+  toggleHideSidebar: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

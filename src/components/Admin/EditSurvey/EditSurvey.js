@@ -4,110 +4,30 @@ import Comment from '../QuestionTypes/Comment/Comment';
 import Checkbox from '../QuestionTypes/CheckBox/CheckBox';
 import RadioGroup from '../QuestionTypes/RadioGroup/RadioGroup';
 import Rating from '../QuestionTypes/Rating/Rating';
-// import RestForm from './RestForm/RestForm';
-
 import DndList from '../DndList/DndList';
-
-import {useNavigate} from 'react-router-dom';
-
+import {useParams} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateDataAdmin} from '../../../redux/actions/survey';
 import './EditSurvey.css'; // Import your CSS file for styling
 
-// ###
-
-import {useDispatch, useSelector} from 'react-redux';
-import { updateDataAdmin } from '../../../redux/actions/actions';
-// import {firestore} from '../../../services/firebase';
-// import {collection, addDoc, updateDoc} from 'firebase/firestore';
-import { useParams } from 'react-router-dom';
-
-
-
-// ###
-
 function EditSurvey () {
-
-  const { dataid } = useParams();
+  const {dataid} = useParams ();
 
   const dispatch = useDispatch ();
 
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
-  console.log("line:100", surveyDataFromRedux);
+  console.log ('line:100', surveyDataFromRedux);
 
-  const [surveys, setSurveys] = useState({});
-  console.log("line:1", surveys.title);
-  console.log("line:1.1", surveys);
-  
-  
-  useEffect (
-    () => {
-      if (surveyDataFromRedux.length === 0) {
-        // dispatch (getAllCars ());
-        console.log("No surveys found!");
-      } else {
-        setSurveys (surveyDataFromRedux.find (o => o.id === dataid));
-        // setFormData();
-      }
-    },
-    [surveyDataFromRedux],
-  );
-
-  const { pages } = surveys;
-
-  useEffect(() => {
-    if (pages && pages.length > 0 && pages[0].elements) {
-      // Access the 'elements' array from the first page of the survey object
-      const elementsArray = pages[0].elements;
-
-    const elementsArrayNew1 = elementsArray.filter(obj => obj.type === 'text');
-
-    const elementsArrayNew2 = elementsArray.filter(obj => obj.type === 'comment');
-
-    const elementsArrayNew3 = elementsArray.filter(obj => obj.type === 'checkbox');
-
-    const elementsArrayNew4 = elementsArray.filter(obj => obj.type === 'radiogroup');
-
-    const elementsArrayNew5 = elementsArray.filter(obj => obj.type === 'rating');
-
-      // Update the 'elements' array in the formData state
-      setFormData((prevData) => {
-        return {
-          ...prevData,
-          elements: [...elementsArrayNew1],
-        };
-      });
-      setFormData2((prevData) => {
-        return {
-          ...prevData,
-          elements2: [...elementsArrayNew2],
-        };
-      });
-      setFormData3((prevData) => {
-        return {
-          ...prevData,
-          elements3: [...elementsArrayNew3],
-        };
-      });
-      setFormData4((prevData) => {
-        return {
-          ...prevData,
-          elements4: [...elementsArrayNew4],
-        };
-      });
-      setFormData5((prevData) => {
-        return {
-          ...prevData,
-          elements5: [...elementsArrayNew5],
-        };
-      });
-    }
-  }, [pages]); 
+  const [surveys, setSurveys] = useState ({});
+  console.log ('line:1', surveys.title);
+  console.log ('line:1.1', surveys);
 
   // #################################################################### - Initial State
-
+  
   const [formData, setFormData] = useState ({
     elements: [],
   });
-
+  
   const [formData2, setFormData2] = useState ({
     elements2: [],
   });
@@ -119,15 +39,94 @@ function EditSurvey () {
   const [formData4, setFormData4] = useState ({
     elements4: [],
   });
-
+  
   const [formData5, setFormData5] = useState ({
     elements5: [],
   });
+  
+  // #################################################################### - useEffect
+
+  useEffect (
+    () => {
+      if (surveyDataFromRedux.length === 0) {
+        // dispatch (getAllCars ());
+        console.log ('No surveys found!');
+      } else {
+        setSurveys (surveyDataFromRedux.find (o => o.id === dataid));
+        // setFormData();
+      }
+    },
+    [surveyDataFromRedux],
+  );
+
+  const {pages} = surveys;
+
+  useEffect (
+    () => {
+      if (pages && pages.length > 0 && pages[0].elements) {
+        // Access the 'elements' array from the first page of the survey object
+        const elementsArray = pages[0].elements;
+
+        const elementsArrayNew1 = elementsArray.filter (
+          obj => obj.type === 'text',
+        );
+
+        const elementsArrayNew2 = elementsArray.filter (
+          obj => obj.type === 'comment',
+        );
+
+        const elementsArrayNew3 = elementsArray.filter (
+          obj => obj.type === 'checkbox',
+        );
+
+        const elementsArrayNew4 = elementsArray.filter (
+          obj => obj.type === 'radiogroup',
+        );
+
+        const elementsArrayNew5 = elementsArray.filter (
+          obj => obj.type === 'rating',
+        );
+
+        // Update the 'elements' array in the formData state
+        setFormData (prevData => {
+          return {
+            ...prevData,
+            elements: [...elementsArrayNew1],
+          };
+        });
+        setFormData2 (prevData => {
+          return {
+            ...prevData,
+            elements2: [...elementsArrayNew2],
+          };
+        });
+        setFormData3 (prevData => {
+          return {
+            ...prevData,
+            elements3: [...elementsArrayNew3],
+          };
+        });
+        setFormData4 (prevData => {
+          return {
+            ...prevData,
+            elements4: [...elementsArrayNew4],
+          };
+        });
+        setFormData5 (prevData => {
+          return {
+            ...prevData,
+            elements5: [...elementsArrayNew5],
+          };
+        });
+      }
+    },
+    [pages],
+  );
 
   // #################################################################### - Dnd
 
   const [characters, updateCharacters] = useState ([]);
-  console.log("line:2", characters);
+  console.log ('line:2', characters);
 
   useEffect (
     () => {
@@ -147,13 +146,13 @@ function EditSurvey () {
           isRequired: element.isRequired,
           choices: element.choices || null,
           rateMax: element.rateMax || null,
-          rateMin: element.rateMin || null
+          rateMin: element.rateMin || null,
         };
       });
 
       updateCharacters (extractedData);
     },
-    [formData, formData2, formData3, formData4, formData5]
+    [formData, formData2, formData3, formData4, formData5],
   );
 
   function handleonDragEnd (result) {
@@ -237,12 +236,6 @@ function EditSurvey () {
     setFormData2 ({elements2: updatedElements});
   };
 
-  const handleSubmit2 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
-    console.log (formData2);
-  };
-
   // #################################################################### - Checkbox
 
   const handleAddElement3 = () => {
@@ -284,12 +277,6 @@ function EditSurvey () {
     setFormData3 ({elements3: updatedElements});
   };
 
-  const handleSubmit3 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
-    console.log (formData3);
-  };
-
   // #################################################################### - Radio
 
   const handleAddElement4 = () => {
@@ -326,12 +313,6 @@ function EditSurvey () {
     const updatedElements = [...formData4.elements4];
     updatedElements.splice (index, 1);
     setFormData4 ({elements4: updatedElements});
-  };
-
-  const handleSubmit4 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
-    console.log (formData4);
   };
 
   // #################################################################### - Rating
@@ -375,19 +356,7 @@ function EditSurvey () {
     setFormData5 ({elements5: updatedElements});
   };
 
-  const handleSubmit5 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
-    console.log (formData5);
-  };
-
   // #################################################################### - Rest Form
-
-  // const initialElement = {
-  //   type: '',
-  //   label: '',
-  //   // Add more properties for the element as needed
-  // };
 
   const initialSurvey = {
     title: characters.title || 'About your workplace',
@@ -397,9 +366,7 @@ function EditSurvey () {
   const [surveyData, setSurveyData] = useState ({
     initialSurvey,
   });
-  console.log("line:200", surveyData);
-
-  
+  console.log ('line:200', surveyData);
 
   const data500 = {
     title: surveyData.title || surveys.title,
@@ -410,7 +377,7 @@ function EditSurvey () {
     () => {
       setSurveyData (data500);
     },
-    [characters]
+    [characters],
   );
 
   const handleTitleChange = e => {
@@ -424,40 +391,36 @@ function EditSurvey () {
   };
 
   // #################################################################### - Submit to Firestore
-  
-  const handleSubmitForm = async (e) => {
-      e.preventDefault();
-      try {
-        // Update data in Firestore
-        await dispatch(updateDataAdmin(dataid, surveyData));
-  
-        console.log('Document updated successfully');
-      } catch (error) {
-        console.error('Error updating document: ', error);
-      }
-    };
-  
+
+  const handleSubmitForm = async e => {
+    e.preventDefault ();
+    try {
+      // Update data in Firestore
+      await dispatch (updateDataAdmin (dataid, surveyData));
+
+      console.log ('Document updated successfully');
+    } catch (error) {
+      console.error ('Error updating document: ', error);
+    }
+  };
+
   // #################################################################### - Back Button
-
-  const navigate = useNavigate ();
-
-
 
   return (
     <div>
 
-    
-
       <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmitForm}>
 
-            <h2 style={{backgroundColor:"#F4F4F4", padding: "10px"}}>Survey Form</h2>
-            <hr className='green-line-1' />
+        <h2 style={{backgroundColor: '#F4F4F4', padding: '10px'}}>
+          Survey Form
+        </h2>
+        <hr className="green-line-1" />
 
         <div className="form-container-1">
           <div className="element-container-1">
 
-            <label className='label'>
-              <h4>Title:</h4> 
+            <label className="label">
+              <h4>Title:</h4>
               <input
                 type="text"
                 name="title"
@@ -467,9 +430,9 @@ function EditSurvey () {
               />
             </label>
             {surveyData.pages?.map ((page, pageIndex) => (
-              <div className='label' key={pageIndex}>
-                <label className='label'>
-                  <h4>Page Name:</h4> 
+              <div className="label" key={pageIndex}>
+                <label className="label">
+                  <h4>Page Name:</h4>
                   <input
                     type="text"
                     name="pageName"
@@ -493,13 +456,13 @@ function EditSurvey () {
 
           <div className="main-admin" onSubmit={handleSubmit}>
             <h2>Add Questions to the Survey:</h2>
-            <hr className='green-line' />
+            <hr className="green-line" />
             <Question
               elements={formData.elements}
               onAddElement={handleAddElement}
               onElementChange={handleElementChange}
               onDeleteElement={handleDeleteElement}
-            // surveyData={surveyData}
+              // surveyData={surveyData}
             />
             <hr />
             <Comment
@@ -538,7 +501,7 @@ function EditSurvey () {
               handleonDragEnd={handleonDragEnd}
             />
           </div>
-          <div className='submit-form' style={{}}>
+          <div className="submit-form" style={{}}>
             <button style={{background: '#45a049'}} type="submit">
               Update Survey
             </button>

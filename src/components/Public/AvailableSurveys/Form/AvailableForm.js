@@ -2,26 +2,18 @@ import React, {useState, useEffect} from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import {useDispatch, useSelector} from 'react-redux';
-
-import {addData} from '../../../../redux/actions/actions';
+import {addData} from '../../../../redux/actions/survey';
 import {firestore} from '../../../../services/firebase';
-
 import {collection, addDoc} from 'firebase/firestore';
-// import survey1 from '../../../../assets/data/survey1';
-import './AvailableForm.css';
-
 import {useParams, useNavigate} from 'react-router-dom';
-
+import './AvailableForm.css';
 
 const AvailableForm = () => {
   const {dataid} = useParams ();
-  console.log ('line:100', dataid);
 
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
-  console.log ('line:200', surveyDataFromRedux);
 
   const [surveys, setSurveys] = useState ({});
-  console.log ('line:500', surveys);
 
   useEffect (
     () => {
@@ -32,13 +24,10 @@ const AvailableForm = () => {
         setSurveys (surveyDataFromRedux.find (o => o.id === dataid));
       }
     },
-    [surveyDataFromRedux]
+    [surveyDataFromRedux],
   );
 
-  // console.log("line:300", survey1.title);
-
   const [surveyResult, setSurveyResult] = useState (null);
-  console.log ('line:400', surveyResult);
 
   const dispatch = useDispatch ();
 
@@ -50,27 +39,17 @@ const AvailableForm = () => {
       title: surveys.title,
     };
 
-    console.log ('line:2', surveyData);
     setSurveyResult (surveyData);
-    // window.location.href = '/form/success';
-
-    const dataToAdd = {
-      // Your data fields here
-      field1: 'value1',
-      field2: 'value2',
-      // ...
-    };
 
     try {
       // Add data to Firestore
       const docRef = await addDoc (
         collection (firestore, 'takenSurvey'),
-        surveyData
+        surveyData,
       );
 
       // Dispatch the action to add data to Redux store
       dispatch (addData ({id: docRef.id, ...surveyData}));
-      // dispatch(addData({ id: docRef.id, ...dataToAdd }));
 
       console.log ('Document written with ID: ', docRef.id);
       navigate ('/');

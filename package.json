@@ -8,6 +8,7 @@
     "chart.js": "^3.7.0",
     "classnames": "^2.3.2",
     "firebase": "^9.0.0",
+    "prop-types": "^15.8.1",
     "react": "^18.0.1",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap": "^2.7.4",
@@ -33,13 +34,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0"
   },
   "browserslist": {
     "production": [

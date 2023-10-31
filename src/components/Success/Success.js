@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 
-
-
-const Success = ({ match }) => {
-
-  const document = useSelector((state) => state.document);
-
-  
+const Success = () => {
 
   return (
     <div>
@@ -16,6 +9,6 @@ const Success = ({ match }) => {
    
     </div>
   );
-}
+};
 
 export default Success;

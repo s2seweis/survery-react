@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Checkbox = props => {
   return (
@@ -6,7 +7,7 @@ const Checkbox = props => {
       <h4>Checkbox:</h4>
       {props.elements3.map ((element, index) => (
         <div key={index} className="element-container">
-          <label className='label'>
+          <label className="label">
             Name:
             <input
               type="text"
@@ -17,7 +18,7 @@ const Checkbox = props => {
             />
           </label>
 
-          <label className='label'>
+          <label className="label">
             Title:
             <input
               type="text"
@@ -49,7 +50,7 @@ const Checkbox = props => {
               onChange={e => props.onElementChange3 (e, index)}
             />
             <button
-              className='button-delete'
+              className="button-delete"
               type="button"
               onClick={() => props.onDeleteElement3 (index)}
             >
@@ -66,6 +67,20 @@ const Checkbox = props => {
 
     </div>
   );
+};
+
+Checkbox.propTypes = {
+  elements3: PropTypes.arrayOf (
+    PropTypes.shape ({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      choices: PropTypes.arrayOf (PropTypes.string),
+      isRequired: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
+  onElementChange3: PropTypes.func.isRequired,
+  onDeleteElement3: PropTypes.func.isRequired,
+  onAddElement3: PropTypes.func.isRequired,
 };
 
 export default Checkbox;

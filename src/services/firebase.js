@@ -18,21 +18,19 @@
 
 // export { firestore, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut };
 
-
 // firebase.js
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { getFirestore, collection, doc, setDoc, getDoc } from 'firebase/firestore';
 
-
 const firebaseConfig = {
-    apiKey: 'AIzaSyCE-StUsOVrhMu8gCqS6pex_mZDAcXme7g',
-    authDomain: 'survey-react-firebase.firebaseapp.com',
-    projectId: 'survey-react-firebase',
-    storageBucket: 'survey-react-firebase.appspot.com',
-    messagingSenderId: '276375268607',
-    appId: '1:276375268607:web:974a8c7cfe203e1a9fb0ca',
+  apiKey: 'AIzaSyCE-StUsOVrhMu8gCqS6pex_mZDAcXme7g',
+  authDomain: 'survey-react-firebase.firebaseapp.com',
+  projectId: 'survey-react-firebase',
+  storageBucket: 'survey-react-firebase.appspot.com',
+  messagingSenderId: '276375268607',
+  appId: '1:276375268607:web:974a8c7cfe203e1a9fb0ca',
 };
 
 const app = initializeApp(firebaseConfig);
@@ -111,12 +109,12 @@ const logoutUser = async () => {
 // };
 
 const getUserData = async (uid) => {
-  console.log("line:2", uid);
+  console.log('line:2', uid);
   try {
     const userRef = doc(collection(firestore, 'users'), uid);
-    console.log("line:3", userRef);
+    console.log('line:3', userRef);
     const userDoc = await getDoc(userRef);
-    console.log("line:5", userDoc);
+    console.log('line:5', userDoc);
     if (userDoc.exists()) {
       return userDoc.data();
     } else {
@@ -130,4 +128,3 @@ const getUserData = async (uid) => {
 // export { auth, registerUser, loginUser, logoutUser, firestore };
 // sill need to replace the customized firsebase functions with the provided 
 export { firestore, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, loginUser, logoutUser, registerUser, getUserData };
-

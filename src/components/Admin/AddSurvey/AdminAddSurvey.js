@@ -4,22 +4,13 @@ import Comment from '../QuestionTypes/Comment/Comment';
 import Checkbox from '../QuestionTypes/CheckBox/CheckBox';
 import RadioGroup from '../QuestionTypes/RadioGroup/RadioGroup';
 import Rating from '../QuestionTypes/Rating/Rating';
-import RestForm from '../RestForm/RestForm';
-
 import DndList from '../DndList/DndList';
-
 import {useNavigate} from 'react-router-dom';
-
-import './AdminAddSurvey.css'; // Import your CSS file for styling
-
-// ###
-
 import {useDispatch} from 'react-redux';
-import {addDataAdmin} from '../../../redux/actions/actions';
+import {addDataAdmin} from '../../../redux/actions/survey';
 import {firestore} from '../../../services/firebase';
 import {collection, addDoc} from 'firebase/firestore';
-
-// ###
+import './AdminAddSurvey.css'; // Import your CSS file for styling
 
 function ParentComponent () {
 
@@ -71,14 +62,14 @@ function ParentComponent () {
           // ###
           // missing from rating!!!
           rateMin: element.rateMin || null,
-          rateMax: element.rateMax || null
+          rateMax: element.rateMax || null,
           // ###
         };
       });
 
       updateCharacters (extractedData);
     },
-    [formData, formData2, formData3, formData4, formData5]
+    [formData, formData2, formData3, formData4, formData5],
   );
 
   function handleonDragEnd (result) {
@@ -159,11 +150,6 @@ function ParentComponent () {
     setFormData2 ({elements2: updatedElements});
   };
 
-  const handleSubmit2 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
-  };
-
   // #################################################################### - Checkbox
 
   const handleAddElement3 = () => {
@@ -205,11 +191,6 @@ function ParentComponent () {
     setFormData3 ({elements3: updatedElements});
   };
 
-  const handleSubmit3 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
-  };
-
   // #################################################################### - Radio
 
   const handleAddElement4 = () => {
@@ -246,11 +227,6 @@ function ParentComponent () {
     const updatedElements = [...formData4.elements4];
     updatedElements.splice (index, 1);
     setFormData4 ({elements4: updatedElements});
-  };
-
-  const handleSubmit4 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
   };
 
   // #################################################################### - Rating
@@ -294,18 +270,7 @@ function ParentComponent () {
     setFormData5 ({elements5: updatedElements});
   };
 
-  const handleSubmit5 = e => {
-    e.preventDefault ();
-    // Handle form submission logic here with formData
-  };
-
   // #################################################################### - Rest Form
-
-  const initialElement = {
-    type: '',
-    label: '',
-    // Add more properties for the element as needed
-  };
 
   const initialSurvey = {
     title: characters.title || 'About your workplace',
@@ -316,8 +281,6 @@ function ParentComponent () {
     initialSurvey,
   });
 
-  
-
   const data500 = {
     title: surveyData.title || '',
     pages: [{name: 'page1', elements: characters}],
@@ -327,7 +290,7 @@ function ParentComponent () {
     () => {
       setSurveyData (data500);
     },
-    [characters]
+    [characters],
   );
 
   const handleTitleChange = e => {
@@ -345,11 +308,11 @@ function ParentComponent () {
 
   const handleSubmitForm = async e => {
     e.preventDefault ();
-     try {
+    try {
       // Add data to Firestore
       const docRef = await addDoc (
         collection (firestore, 'adminSurvey'),
-        surveyData
+        surveyData,
       );
 
       // Dispatch the action to add data to Redux store
@@ -366,19 +329,13 @@ function ParentComponent () {
 
   // #################################################################### - Back Button
 
-  
-
- 
-
   return (
     <div>
 
-    
-
       <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmitForm}>
 
-            <h2 style={{backgroundColor:"#F4F4F4", padding: "10px"}}>Survey Form</h2>
-            <hr className='green-line-1' />
+        <h2 style={{backgroundColor:'#F4F4F4', padding: '10px'}}>Survey Form</h2>
+        <hr className='green-line-1' />
 
         <div className="form-container-1">
           <div className="element-container-1">

@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
-import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {collection, getDocs, doc, deleteDoc} from 'firebase/firestore';
-import {setSurveyData} from '../../../redux/actions/actions';
+import {setSurveyData} from '../../../redux/actions/survey';
 import {firestore} from '../../../services/firebase';
 import './SurveyList.css';
 import {Link} from 'react-router-dom';
@@ -20,12 +19,12 @@ const SurveyList = () => {
           const surveyCollectionRef = collection (firestore, 'adminSurvey');
           const surveySnapshot = await getDocs (surveyCollectionRef);
 
-          const surveyData = surveySnapshot.docs.map (doc => ({
+          const surveyDataAdmin = surveySnapshot.docs.map (doc => ({
             id: doc.id,
             ...doc.data (),
           }));
 
-          dispatch (setSurveyData (surveyData));
+          dispatch (setSurveyData (surveyDataAdmin));
         } catch (error) {
           console.error ('Error fetching survey data:', error);
         }
@@ -33,7 +32,7 @@ const SurveyList = () => {
 
       fetchSurveyDataFromFirestore ();
     },
-    [dispatch]
+    [dispatch],
   );
 
   //   ###
@@ -45,7 +44,7 @@ const SurveyList = () => {
 
       // Remove survey data from Redux store
       const updatedSurveyData = surveyDataFromRedux.filter (
-        data => data.id !== surveyId
+        data => data.id !== surveyId,
       );
       dispatch (setSurveyData (updatedSurveyData));
     } catch (error) {
@@ -61,13 +60,11 @@ const SurveyList = () => {
       <div className="survey-form">
         {surveyDataFromRedux &&
           <div className="survey-results">
-            {/* <h3>Survey Data from Redux Store:</h3> */}
-            <h3>Available Surveys:</h3>
+            <h3>Available Surveys100:</h3>
             <div className="takenSurvey-main">
               {surveyDataFromRedux.map ((data, index) => (
                 <div className="takenSurvey-container" key={index}>
                   <div>{data.name}</div>
-                  <div>{data.id}</div>
                   <div>{data.title}</div>
                   <button className="btn1 mr-2">
                     <Link to={`/admin/available-surveys/${data.id}`}>

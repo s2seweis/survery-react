@@ -7,14 +7,14 @@ import styles from './Profile.module.css'; // Import the CSS module
 const UserForm = () => {
   const dispatch = useDispatch();
   const userData = useSelector(state => state.user.userData);
-  console.log("line:1", userData);
-  console.log("line:2", userData.userId);
+  console.log('line:1', userData);
+  console.log('line:2', userData.userId);
 
-  const dataid = userData.userId
-  console.log("2.1", dataid);
+  const dataid = userData.userId;
+  console.log('2.1', dataid);
 
   const [formData, setFormData] = useState(userData);
-  console.log("line:3", formData);
+  console.log('line:3', formData);
 
   // const handleFormSubmit = e => {
   //   e.preventDefault();

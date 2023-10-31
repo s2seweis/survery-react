@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
-import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {collection, getDocs} from 'firebase/firestore';
-import {setSurveyData} from '../../../redux/actions/actions';
+import {setSurveyData} from '../../../redux/actions/survey';
 import {firestore} from '../../../services/firebase';
 import './AvailableSurveys.css';
 import {Link} from 'react-router-dom';
@@ -33,12 +32,8 @@ const AvailableSurveys = () => {
 
       fetchSurveyDataFromFirestore ();
     },
-    [dispatch]
+    [dispatch],
   );
-
-  const onCompleteSurvey = async survey => {
-    // Handle survey completion logic if needed
-  };
 
   return (
     <div className="survey-content">
@@ -46,17 +41,13 @@ const AvailableSurveys = () => {
       <div className="survey-form">
         {surveyDataFromRedux &&
           <div className="survey-results">
-            {/* <h3>Survey Data from Redux Store:</h3> */}
-            <h3>Available Surveys1:</h3>
+            <h3>Available Surveys:</h3>
             <div className="takenSurvey-main">
               {surveyDataFromRedux.map ((data, index) => (
                 <div className="takenSurvey-container" key={index}>
                   <div>{data.name}</div>
-                  <div>{data.id}</div>
                   <div>{data.title}</div>
-                  {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
                   <button className="btn1 mr-2">
-                    {/* <Link to={`/home`}>Take the Survey</Link> */}
                     <Link to={`/available-surveys/${data.id}`}>
                       Take the Suvey
                     </Link>

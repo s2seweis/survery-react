@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Question (props) {
   return (
@@ -6,16 +7,7 @@ function Question (props) {
       <h4>Questions:</h4>
       {props.elements?.map ((element, index) => (
         <div key={index} className="element-container">
-          {/* <label>
-              Type:
-              <input
-                type="text"
-                name="type"
-                value={element.type}
-                onChange={(e) => props.onElementChange(e, index)}
-              />
-            </label> */}
-          <label className='label'>
+          <label className="label">
             Name:
             <input
               type="text"
@@ -25,8 +17,7 @@ function Question (props) {
               onChange={e => props.onElementChange (e, index)}
             />
           </label>
-
-          <label className='label'>
+          <label className="label">
             Title:
             <input
               type="text"
@@ -36,9 +27,7 @@ function Question (props) {
               onChange={e => props.onElementChange (e, index)}
             />
           </label>
-
-
-          <div  className="checkbox-div">
+          <div className="checkbox-div">
             Is Required:
             <input
               type="checkbox"
@@ -47,7 +36,7 @@ function Question (props) {
               onChange={e => props.onElementChange (e, index)}
             />
             <button
-              className='button-delete'
+              className="button-delete"
               type="button"
               onClick={() => props.onDeleteElement (index)}
             >
@@ -64,5 +53,18 @@ function Question (props) {
     </div>
   );
 }
+
+Question.propTypes = {
+  elements: PropTypes.arrayOf (
+    PropTypes.shape ({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      isRequired: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
+  onElementChange: PropTypes.func.isRequired,
+  onDeleteElement: PropTypes.func.isRequired,
+  onAddElement: PropTypes.func.isRequired,
+};
 
 export default Question;

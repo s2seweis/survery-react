@@ -16,7 +16,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className={styles['login-main']}>
       <div className={styles['login-container']}>
         <h2>Login</h2>
         <input
@@ -38,7 +38,7 @@ const Login = () => {
           Login
         </button>
       </div>
-      <div style={{marginTop:"15px"}} className={styles['login-container']}>
+      <div style={{marginTop:'15px'}} className={styles['login-container']}>
         <h4>Login Data:</h4>
         <h6>Admin:</h6>
         <h6>sebastian@gmail.com</h6>
@@ -49,7 +49,6 @@ const Login = () => {
         <h6>ywain@gmail.com</h6>
         <h6>Password:</h6>
         <h6>law123</h6>
-
         
       </div>
     </div>

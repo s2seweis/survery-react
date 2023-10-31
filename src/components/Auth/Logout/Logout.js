@@ -1,10 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../../redux/actions/auth';
-import {useNavigate, Link} from 'react-router-dom';
-
-
-import styles from './Logout.module.css';
+import {useNavigate} from 'react-router-dom';
 
 const Logout = () => {
   const navigate = useNavigate();
@@ -21,7 +18,6 @@ const Logout = () => {
       {isAuthenticated ? (
         <button onClick={handleLogout}>Logout</button>
       ) : (
-        // <p>Login</p>
         <button onClick={handleLogout}>Login</button>
       )}
     </div>

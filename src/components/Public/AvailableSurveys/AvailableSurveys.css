@@ -1,9 +1,11 @@
 .takenSurvey-container{
-    height: 100px;
+    /* height: 100px; */
+    height: auto;
     background-color: aliceblue;
     border: 1px solid black;
     border-radius: 20px;
     width: 90%;
+    padding: 20px;
 }
 
 .takenSurvey-main{
@@ -13,5 +15,6 @@
 }
 
 .survey-results{
-    margin: auto;
+    margin: 10px auto;
+    padding: 20px;
 }

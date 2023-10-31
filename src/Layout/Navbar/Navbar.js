@@ -1,18 +1,17 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import {FaAlignJustify} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import {userDropdownItems, adminDropdownItems} from './DropDownItems'; // Import the dropdown items
-import './Navbar.css';
-import '../../styles/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import classnames from 'classnames';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Logout from '../../components/Auth/Logout/Logout';
 import pageLinks from '../../constants/links';
-import { useDispatch, useSelector } from 'react-redux';
-
-
+import {useSelector} from 'react-redux';
+import './Navbar.css';
+import '../../styles/bootstrap.css';
 
 const Navbar = ({
   isOpen,
@@ -94,7 +93,7 @@ const Navbar = ({
                   style={{textAlign: 'center'}}
                 >
                   <button>
-                  <Link style={{margin:"auto"}} to={item.url}>{item.text}</Link>
+                    <Link style={{margin:'auto'}} to={item.url}>{item.text}</Link>
                   </button>
                   
                 </Dropdown.Item>
@@ -112,6 +111,15 @@ const Navbar = ({
       </div>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+  toggleHideSidebar: PropTypes.func.isRequired,
+  sidebar: PropTypes.bool.isRequired,
+  setSidebar: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired,
 };
 
 export default Navbar;

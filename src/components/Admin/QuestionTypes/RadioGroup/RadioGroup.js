@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RadioGroup = props => {
   return (
@@ -65,6 +66,20 @@ const RadioGroup = props => {
 
     </div>
   );
+};
+
+RadioGroup.propTypes = {
+  elements4: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      choices: PropTypes.arrayOf(PropTypes.string),
+      isRequired: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
+  onElementChange4: PropTypes.func.isRequired,
+  onDeleteElement4: PropTypes.func.isRequired,
+  onAddElement4: PropTypes.func.isRequired,
 };
 
 export default RadioGroup;

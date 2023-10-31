@@ -9,8 +9,8 @@ const RestForm = props => {
   };
 
   const initialSurvey = {
-    title: props.data.title || 'About your workplace',
-    pages: props.data.pages || [{name: 'page1', elements: []}],
+    title: props.survey.title || 'About your workplace',
+    pages: props.survey.pages || [{name: 'page1', elements: []}],
   };
 
   const [surveyData, setSurveyData] = useState ({
@@ -26,7 +26,7 @@ const RestForm = props => {
     () => {
       setSurveyData (data500);
     },
-    [props.data]
+    [props.data],
   );
 
   const handleTitleChange = e => {
@@ -71,7 +71,7 @@ const RestForm = props => {
     <div className="form-container">
       <div className="element-container-1">
 
-        <h2 style={{margin:"0px 0px 0px 0px"}}>Survey Form</h2>
+        <h2 style={{margin:'0px 0px 0px 0px'}}>Survey Form</h2>
         <form style={{width: '', margin: 'auto'}} onSubmit={handleSubmit}>
           <div className='label'>
             <label>

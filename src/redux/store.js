@@ -8,7 +8,7 @@ const middlewares = [thunk, logger]; // Apply middleware as needed
 
 const store = createStore(
   persistedReducer,
-  applyMiddleware(...middlewares)
+  applyMiddleware(...middlewares),
 );
 
 const persistor = persistStore(store);

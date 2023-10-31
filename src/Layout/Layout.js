@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import Footer from './Footer/Footer';
 import Navbar from './Navbar/Navbar';
-import './Layout.css';
 import Sidebar from './Sidebar/Sidebar';
+import './Layout.css';
 
 const Layout = ({children}) => {
   const [isOpen, setIsOpen] = useState (false);
-  const [show, setShow] = useState (false);
   const [sidebar, setSidebar] = useState (false);
   const [visible, setVisible] = useState (true);
   const [style, setStyle] = useState ('overlay');
@@ -36,18 +36,12 @@ const Layout = ({children}) => {
     setStyle ('overlay');
   };
 
-  // const showSidebar = () => {
-  //   setSidebar (!sidebar);
-  //   // Add your logic for setting styles if needed
-  // };
-
   const goBack = () => {
     window.history.back ();
   };
 
   return (
     <div className="layout-container">
-      {/* Your overlay or other elements */}
       <div
         className={visible ? 'visible-style' : 'hidden-style'}
         onClick={toggleHideSidebar}
@@ -63,7 +57,6 @@ const Layout = ({children}) => {
         <Navbar
           isOpen={isOpen}
           toggleSidebar={toggleSidebar}
-          handleShow={() => setShow (true)}
           sidebar={sidebar}
           setSidebar={setSidebar}
           toggleHideSidebar={toggleHideSidebar}
@@ -77,6 +70,10 @@ const Layout = ({children}) => {
       <Footer />
     </div>
   );
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

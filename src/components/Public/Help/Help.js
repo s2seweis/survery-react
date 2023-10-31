@@ -5,14 +5,14 @@ const Help = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -24,7 +24,7 @@ const Help = () => {
     setFormData({
       name: '',
       email: '',
-      message: ''
+      message: '',
     });
   };
 

@@ -13,5 +13,10 @@
 }
 
 .survey-results{
-    margin: auto;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+.btn1{
+    margin: 5px;
 }

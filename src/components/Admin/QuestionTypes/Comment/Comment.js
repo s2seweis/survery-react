@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Comment = (props) => {
   return (
@@ -54,6 +55,19 @@ const Comment = (props) => {
 
     </div>
   );
+};
+
+Comment.propTypes = {
+  elements2: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      isRequired: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
+  onElementChange2: PropTypes.func.isRequired,
+  onDeleteElement2: PropTypes.func.isRequired,
+  onAddElement2: PropTypes.func.isRequired,
 };
 
 export default Comment;

@@ -1,27 +1,12 @@
-import React from "react"
-import {
-  FaFacebookSquare,
-  // FaLinkedin,
-  FaGithub,
-  // FaBehanceSquare,
-  // FaTwitterSquare,
-  // FaInstagram,
-  FaTiktok,
-  FaYoutube
-  
-} from "react-icons/fa"
-import { GrLogout } from "react-icons/gr"
-
-
-
-
-
+import React from 'react';
+// import {FaFacebookSquare, FaGithub, FaTiktok, FaYoutube} from 'react-icons/fa';
+import {GrLogout} from 'react-icons/gr';
 
 const data = [
   {
     id: 1,
-    icon: <GrLogout className="social-icon"></GrLogout>,
-    url: "/login",
+    icon: <GrLogout className="social-icon" />,
+    url: '/login',
   },
   // {
   //   id: 2,
@@ -32,17 +17,7 @@ const data = [
   //   id: 3,
   //   icon: <FaGithub className="social-icon"></FaGithub>,
   //   url: "https://www.tiktok.com/",
-  // },
-  // {
-  //   id: 4,
-  //   icon: <FaBehanceSquare className="social-icon"></FaBehanceSquare>,
-  //   url: "https://www.twitter.com",
-  // },
-  // {
-  //   id: 5,
-  //   icon: <FaTwitterSquare className="social-icon"></FaTwitterSquare>,
-  //   url: "https://www.twitter.com",
-  // },
-]
+  // }
+];
 
-export default data
+export default data;

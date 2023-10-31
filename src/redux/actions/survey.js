@@ -1,4 +1,4 @@
-import { firestore } from '../../../src/services/firebase';
+import { firestore } from '../../services/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 export const ADD_DATA = 'ADD_DATA';
 export const ADD_DATA_ADMIN = 'ADD_DATA_ADMIN';
@@ -6,8 +6,9 @@ export const UPDATE_OBJECT = 'UPDATE_OBJECT';
 export const DELETE_OBJECT = 'DELETE_OBJECT';
 export const SET_OBJECTS = 'SET_OBJECTS';
 export const SET_DOCUMENT = 'SET_DOCUMENT';
-export const SET_SURVEY_DATA = 'SET_SURVEY_DATA';
+export const SET_SURVEY_DATA_TAKEN = 'SET_SURVEY_DATA_TAKEN';
 export const SET_SURVEY_DATA_ADMIN = 'SET_SURVEY_DATA_ADMIN';
+export const DATA_UPDATED = 'DATA_UPDATED';
 
 export const addData = object => ({
   type: ADD_DATA,
@@ -39,9 +40,8 @@ export const setDocument = documentData => ({
   payload: documentData,
 });
 
-
-export const setSurveyDataAdmin = dataWithIds => ({
-  type: SET_SURVEY_DATA,
+export const setSurveyDataTaken = dataWithIds => ({
+  type: SET_SURVEY_DATA_TAKEN,
   payload: dataWithIds,
 });
 
@@ -60,3 +60,16 @@ export const updateDataAdmin = (docId, updatedData) => {
     }
   };
 };
+
+export const updateData = (docId, updatedData) => {
+  return {
+    type: DATA_UPDATED,
+    payload: {
+      docId: docId,
+      updatedData: updatedData,
+    },
+  };
+};
+
+
+
