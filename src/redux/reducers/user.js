@@ -14,13 +14,8 @@ const userReducer = (state = initialState, action) => {
       ...state,
       userData: null,
     };
-    // case 'UPDATE_USER_DATA':
-    //   return {
-    //     ...state,
-    //     userData: action.payload,
-    //   };
-  case 'DATA_UPDATED':
-    const {docId, updatedData} = action.payload;
+  case 'DATA_UPDATED_USER': {
+    const { docId, updatedData } = action.payload;
     // Check if the updated data corresponds to the current user being edited
     if (state.userData && state.userData.userId === docId) {
       return {
@@ -31,6 +26,8 @@ const userReducer = (state = initialState, action) => {
         },
       };
     }
+    break; // Add the break statement here
+  }
   default:
     return state;
   }

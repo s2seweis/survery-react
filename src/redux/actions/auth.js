@@ -20,11 +20,8 @@ export const login = (email, password) => async (dispatch) => {
   
   try {
     const userCredential = await loginUser(email, password);
-    // const user = userCredential.user;
-    console.log('line:1', userCredential.uid);
 
     const userData = await getUserData(userCredential.uid);
-    console.log('line:5', userData);
 
     dispatch(setUserData(userData));
     dispatch(loginSuccess(userData));
@@ -55,7 +52,6 @@ export const register = (email, name, password) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_REQUEST });
     const user = await registerUser(email, name, password);
-    console.log('line:500', user.uid);
     const userData = await getUserData(user.uid);
     dispatch(setUserData(userData));
 

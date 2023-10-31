@@ -10,7 +10,6 @@ import {Link} from 'react-router-dom';
 const AvailableSurveys = () => {
   const dispatch = useDispatch ();
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
-  console.log ('line:100', surveyDataFromRedux);
 
   useEffect (
     () => {

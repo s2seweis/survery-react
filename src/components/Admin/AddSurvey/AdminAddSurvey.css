@@ -180,7 +180,7 @@ border-color: var(--main-color, #1ab394)
 background-color: var(--body-background-color, white);
 color: var(--text-color, #6d7072);
 padding: 1em 1em 1.6428em 1em; */
-color: var(--text-color, #6d7072);
+/* color: var(--text-color, #6d7072); */
 
 .main-admin{
   /* border: 1px solid black; */

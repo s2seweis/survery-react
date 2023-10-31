@@ -5,22 +5,16 @@ import Checkbox from '../QuestionTypes/CheckBox/CheckBox';
 import RadioGroup from '../QuestionTypes/RadioGroup/RadioGroup';
 import Rating from '../QuestionTypes/Rating/Rating';
 import DndList from '../DndList/DndList';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {updateDataAdmin} from '../../../redux/actions/survey';
 import './EditSurvey.css'; // Import your CSS file for styling
 
 function EditSurvey () {
   const {dataid} = useParams ();
-
   const dispatch = useDispatch ();
-
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
-  console.log ('line:100', surveyDataFromRedux);
-
   const [surveys, setSurveys] = useState ({});
-  console.log ('line:1', surveys.title);
-  console.log ('line:1.1', surveys);
 
   // #################################################################### - Initial State
   
@@ -126,7 +120,6 @@ function EditSurvey () {
   // #################################################################### - Dnd
 
   const [characters, updateCharacters] = useState ([]);
-  console.log ('line:2', characters);
 
   useEffect (
     () => {
@@ -198,10 +191,6 @@ function EditSurvey () {
   const handleSubmit = e => {
     e.preventDefault ();
     // Handle form submission logic here with formData
-    console.log (formData);
-    console.log (formData2);
-    console.log (formData3);
-    console.log (formData4);
   };
 
   // #################################################################### - Comment
@@ -366,7 +355,6 @@ function EditSurvey () {
   const [surveyData, setSurveyData] = useState ({
     initialSurvey,
   });
-  console.log ('line:200', surveyData);
 
   const data500 = {
     title: surveyData.title || surveys.title,
@@ -392,6 +380,8 @@ function EditSurvey () {
 
   // #################################################################### - Submit to Firestore
 
+  const navigate = useNavigate ();
+
   const handleSubmitForm = async e => {
     e.preventDefault ();
     try {
@@ -399,6 +389,7 @@ function EditSurvey () {
       await dispatch (updateDataAdmin (dataid, surveyData));
 
       console.log ('Document updated successfully');
+      navigate ('/admin');
     } catch (error) {
       console.error ('Error updating document: ', error);
     }
@@ -452,8 +443,6 @@ function EditSurvey () {
         </div>
 
         <div style={{}} className="form-container">
-          {/* <RestForm data={characters} /> */}
-
           <div className="main-admin" onSubmit={handleSubmit}>
             <h2>Add Questions to the Survey:</h2>
             <hr className="green-line" />

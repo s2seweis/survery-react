@@ -10,7 +10,6 @@ import {Link} from 'react-router-dom';
 const SurveyList = () => {
   const dispatch = useDispatch ();
   const surveyDataFromRedux = useSelector (state => state.data.surveyData);
-  console.log ('line:100', surveyDataFromRedux);
 
   useEffect (
     () => {
@@ -60,7 +59,7 @@ const SurveyList = () => {
       <div className="survey-form">
         {surveyDataFromRedux &&
           <div className="survey-results">
-            <h3>Available Surveys100:</h3>
+            <h3>Available Surveys:</h3>
             <div className="takenSurvey-main">
               {surveyDataFromRedux.map ((data, index) => (
                 <div className="takenSurvey-container" key={index}>

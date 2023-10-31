@@ -10,7 +10,6 @@ import './TakenSurvey.css';
 const TakenSuvey = () => {
   const dispatch = useDispatch ();
   const surveyDataFromRedux = useSelector (state => state.data.surveyDataTaken);
-  console.log ('line:100', surveyDataFromRedux);
 
   useEffect (
     () => {

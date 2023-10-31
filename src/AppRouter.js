@@ -35,8 +35,7 @@ const AppRouter = () => {
 
         <Routes>
 
-          {/* <Route path="/" element={<Home />} /> */}
-
+          {/* User Routes */}
           <Route element={<UserRoutes user={user} />}>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
@@ -51,6 +50,7 @@ const AppRouter = () => {
             <Route path="/help" element={<Help />} />
           </Route>
 
+          {/* Admin Routes */}
           <Route element={<AdminRoutes user={user} />}>
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin-addsurvey" element={<AdminAddSurvey />} />

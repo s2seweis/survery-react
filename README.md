@@ -40,3 +40,10 @@ https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-b
 - In this approach, styles are imported as a module, and specific class names (styles.formContainer, styles.inputField, styles.button) are used for each element. 
 - These class names are scoped to this component, ensuring they won't conflict with styles in other parts of your application.
 - See Contact.js and Contact.css. 
+
+# Eslint
+- For seeing the errors in the browser:
+- run npx eslint . = for showing the probs and errors in the console
+- after 
+- run npx eslint . --fix (will show the props in the browser)
+- start working on a file

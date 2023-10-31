@@ -80,7 +80,7 @@ function ParentComponent () {
     updateCharacters (items);
   }
 
-  // #################################################################### - Question
+  // #################################################################### - Question - First Line needs to be, How is yout name?
 
   const handleAddElement = () => {
     setFormData (prevData => ({
@@ -319,7 +319,7 @@ function ParentComponent () {
       dispatch (addDataAdmin ({id: docRef.id, ...surveyData}));
       // dispatch(addData({ id: docRef.id, ...dataToAdd }));
 
-      navigate ('/');
+      navigate ('/admin');
     } catch (error) {
       console.error ('Error adding document: ', error);
     }
@@ -373,7 +373,6 @@ function ParentComponent () {
         </div>
 
         <div style={{}} className="form-container">
-          {/* <RestForm data={characters} /> */}
 
           <div className="main-admin" onSubmit={handleSubmit}>
             <h2>Add Questions to the Survey:</h2>

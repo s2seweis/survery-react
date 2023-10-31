@@ -1,5 +1,6 @@
 import { firestore } from '../../services/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
+
 export const ADD_DATA = 'ADD_DATA';
 export const ADD_DATA_ADMIN = 'ADD_DATA_ADMIN';
 export const UPDATE_OBJECT = 'UPDATE_OBJECT';
@@ -51,13 +52,14 @@ export const setSurveyData = dataWithIds => ({
 });
 
 export const updateDataAdmin = (docId, updatedData) => {
-  return async (dispatch) => {
-    try {
-      await updateDoc(doc(firestore, 'adminSurvey', docId), updatedData);
-      dispatch({ type: 'DATA_UPDATED', payload: { docId, updatedData } });
-    } catch (error) {
-      console.error('Error updating document: ', error);
-    }
+  return (dispatch) => {
+    updateDoc(doc(firestore, 'adminSurvey', docId), updatedData)
+      .then(() => {
+        dispatch({ type: DATA_UPDATED, payload: { docId, updatedData } });
+      })
+      .catch(error => {
+        console.error('Error updating document: ', error);
+      });
   };
 };
 
@@ -70,6 +72,3 @@ export const updateData = (docId, updatedData) => {
     },
   };
 };
-
-
-

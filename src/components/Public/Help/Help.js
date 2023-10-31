@@ -19,7 +19,6 @@ const Help = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here (e.g., send data to server)
-    console.log(formData);
     // Reset the form after submission
     setFormData({
       name: '',
