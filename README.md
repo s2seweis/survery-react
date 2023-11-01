@@ -4,6 +4,7 @@ This project is a simple survey application built using React for the front-end 
 <div>
 ![Alt text](<images/login.png>)
 ![Alt text](<images/routes.png>)
+<img src="images/login.png" alt="Example Image">
 </div>
 
 # Features
