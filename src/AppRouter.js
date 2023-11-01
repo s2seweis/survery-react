@@ -10,17 +10,13 @@ import AvailableSurveys
 import AvailableForm
   from './components/Public/AvailableSurveys/Form/AvailableForm';
 import SurveyResults from './components/Public/SurveyResults/SurveyResults';
-import BarChart from './playground/playground';
+import BarChart from './charts/charts';
 import SurveyList from './components/Admin/SurveyList/SurveyList';
 import EditSurvey from './components/Admin/EditSurvey/EditSurvey';
-
 import Admin from './components/Admin/Admin';
-
 import Help from './components/Public/Help/Help';
-
 import Register from './components/Auth/Register/Register';
 import Login from './components/Auth/Login/Login';
-
 import AdminRoutes from './components/ProtectedRoutes/AdminRoutes';
 import UserRoutes from './components/ProtectedRoutes/UserRoutes';
 import Profile from './components/Profile/Profile';

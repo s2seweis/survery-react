@@ -1,6 +1,6 @@
 import React from 'react';
 import {Bar, Line} from 'react-chartjs-2';
-import './playground.css'; // Import the CSS file for styling
+import './charts.css'; // Import the CSS file for styling
 
 const BarChart = () => {
   const data = {

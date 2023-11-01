@@ -1,0 +1,19 @@
+/* Success.css */
+.success-container {
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-container h1 {
+    font-size: 2em;
+    color: #4CAF50;
+}
+
+.success-container p {
+    font-size: 1.2em;
+    color: #333;
+}
