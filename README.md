@@ -1,6 +1,9 @@
 # Survey App with React and Firebase
 This project is a simple survey application built using React for the front-end and Firebase for the back-end. Users can participate in surveys created by the admin and view the results of completed surveys. This application allows you to create custom surveys, collect responses, and analyze the results.
 
+![Alt text](<images/login.png>)
+![Alt text](<images/routes.png>)
+
 # Features
 - **Authentication:** Users can sign up and log in to participate in surveys.
 - **Survey Creation:** Admin can create custom surveys with multiple-choice questions.
@@ -40,24 +43,17 @@ In your project directory, create a new file named .env. Inside this file, defin
 
 1.  Example .env file:
 
-REACT_APP_FIREBASE_API_KEY=your-api-key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
-REACT_APP_FIREBASE_PROJECT_ID=your-project-id
-REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
-REACT_APP_FIREBASE_APP_ID=your-app-id
+```
+  REACT_APP_FIREBASE_API_KEY=your-api-key
+  REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+  REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+  REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+  REACT_APP_FIREBASE_APP_ID=your-app-id
+```
 
 2. Update Your Firebase Configuration File:
 - Modify your Firebase configuration file to read the environment variables from the .env file.
-
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-};
 
 ```
 const firebaseConfig = {
@@ -80,8 +76,6 @@ export default firebaseConfig;
 
 # Preview
 
-![Alt text](<images/login.png>)
-![Alt text](<images/routes.png>)
 ![Alt text](<images/sidemenu.png>)
 ![Alt text](<images/survey.png>)
 
