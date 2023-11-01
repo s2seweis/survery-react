@@ -1,8 +1,10 @@
 # Survey App with React and Firebase
 This project is a simple survey application built using React for the front-end and Firebase for the back-end. Users can participate in surveys created by the admin and view the results of completed surveys. This application allows you to create custom surveys, collect responses, and analyze the results.
 
+<div>
 ![Alt text](<images/login.png>)
 ![Alt text](<images/routes.png>)
+</div>
 
 # Features
 - **Authentication:** Users can sign up and log in to participate in surveys.
