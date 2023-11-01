@@ -1,16 +1,15 @@
-Certainly! Here's an improved version of your `README.md` file for the Survey App with React and Firebase. I've added some headings, improved formatting, and clarified the content for better readability:
-
-```markdown
-# Survey App with React and Firebase
-
-Survey App is a simple survey application built using React for the front-end and Firebase for the back-end. It enables users to participate in surveys created by the admin and view the results of completed surveys. This application empowers you to create custom surveys, collect responses, and analyze the results effectively.
-
 ## Preview
 
 <div align="center">
   <img src="images/login.png" alt="Login Screen">
   <img src="images/routes.png" alt="Survey Routes">
 </div>
+
+```markdown
+# Survey App with React and Firebase
+
+Survey App is a simple survey application built using React for the front-end and Firebase for the back-end. It enables users to participate in surveys created by the admin and view the results of completed surveys. This application empowers you to create custom surveys, collect responses, and analyze the results effectively.
+
 
 ## Features
 
@@ -83,7 +82,7 @@ In this project, styles are imported as modules, and specific class names (e.g.,
    npm start
    ```
 
-## Preview
+## More Images
 
 <div align="center">
   <img src="images/sidemenu.png" alt="Side Menu">
@@ -91,5 +90,5 @@ In this project, styles are imported as modules, and specific class names (e.g.,
 </div>
 
 Happy surveying! 📝✨
-```
+
 
