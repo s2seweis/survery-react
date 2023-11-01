@@ -78,7 +78,7 @@ export default firebaseConfig;
 
 # Preview
 
-<div>
+<div align="center">
 <img src="images/sidemenu.png" alt="Example Image">
 <img src="images/survey.png" alt="Example Image">
 </div>
