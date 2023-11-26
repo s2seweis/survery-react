@@ -2,9 +2,9 @@
     /* height: 100px; */
     height: auto;
     background-color: aliceblue;
-    border: 1px solid black;
     border-radius: 20px;
     width: 90%;
+    filter: drop-shadow(2px 4px 6px black);
     padding: 20px;
 }
 

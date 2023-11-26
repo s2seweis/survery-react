@@ -1,10 +1,10 @@
 .add-survey-container{
     height: 100px;
-    border: 1px solid black;
     width: 90%;
     background-color: aliceblue;
     border-radius: 20px;
     margin: auto;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 .admin-add-container{

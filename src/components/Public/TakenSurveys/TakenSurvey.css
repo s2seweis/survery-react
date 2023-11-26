@@ -1,10 +1,10 @@
 .takenSurvey-container{
     height: 100px;
     background-color: aliceblue;
-    border: 1px solid black;
     border-radius: 20px;
     width: 90%;
     margin: 15px auto;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 .takenSurvey-main{

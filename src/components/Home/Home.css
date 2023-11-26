@@ -1,6 +1,69 @@
-Link {
-    margin-top: 10px;
-}
-a{
-    margin: 10px 0px;
-}
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+  }
+  
+  .home-layer {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .main-heading {
+    color: #333;
+  }
+  
+  .sub-heading {
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .divider {
+    border: 1px solid #ddd;
+  }
+  
+  /* Navigation links */
+  .nav-link {
+    display: block;
+    padding: 10px !important;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-link:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Overview container for admin and user links */
+  .overview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 5px;
+    width: 70%;
+    margin: auto;
+  }
+
+  @media (max-width: 620px) {
+    .overview-container {
+      gap: 0px;
+    }
+  }
+  
+
+  .hover-effect:hover {
+    color: #007bff; /* Change the color on hover to your preferred color */
+    text-decoration: underline; /* Add underline on hover or customize as needed */
+  }
+
+
+  

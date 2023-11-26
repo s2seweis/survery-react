@@ -12,6 +12,7 @@ import pageLinks from '../../constants/links';
 import {useSelector} from 'react-redux';
 import './Navbar.css';
 import '../../styles/bootstrap.css';
+import logo from '../../assets/images/survey.png';
 
 const Navbar = ({
   isOpen,
@@ -40,7 +41,7 @@ const Navbar = ({
       <div className={style1} onClick={hideSidebar} />
       <div className="nav-center">
         <div className="nav-header">
-          <h2
+          {/* <h2
             className="h2-nav-title"
             style={{
               display: 'flex',
@@ -51,7 +52,8 @@ const Navbar = ({
             }}
           >
             Logo
-          </h2>
+          </h2> */}
+          <img src={logo}></img>
         </div>
         <div style={{marginLeft: '10px'}} className="nav-title">
           <Button
@@ -76,7 +78,7 @@ const Navbar = ({
         <div className="nav-links" style={{alignItems: 'center'}}>
           {/* ... your existing code ... */}
           {pageLinks.map (link => {
-            return <Link key={link.id} to={link.url}> {link.text} </Link>;
+            return <Link className='link-navbar' key={link.id} to={link.url}> {link.text} </Link>;
           })}
           <Dropdown>
             <Dropdown.Toggle

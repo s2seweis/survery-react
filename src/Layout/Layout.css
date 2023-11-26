@@ -10,8 +10,7 @@
   z-index: 1;
   display: none;
 }
-
-.overlay2 {
+z .overlay2 {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
@@ -22,11 +21,16 @@
   display: block;
 }
 
-.layout-container{
+.layout-container {
 }
 
-.layout-content{
+.layout-content {
   min-height: 100vh;
   position: relative;
 }
 
+@media (max-width: 620px) {
+  .layout-content {
+    min-height: 136vh;
+  }
+}

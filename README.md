@@ -2,8 +2,8 @@
 This project is a simple survey application built using React for the front-end and Firebase for the back-end. Users can participate in surveys created by the admin and view the results of completed surveys. This application allows you to create custom surveys, collect responses, and analyze the results.
 
 <div align="center">
-<img src="images/login.png" alt="Example Image">
-<img src="images/routes.png" alt="Example Image">
+<img src="images-readme/login.png" alt="Example Image">
+<img src="images-readme/routes.png" alt="Example Image">
 </div>
 
 # Features
@@ -83,8 +83,8 @@ const firebaseConfig = {
 # Preview
 
 <div align="center">
-<img src="images/sidemenu.png" alt="Example Image">
-<img src="images/survey.png" alt="Example Image">
+<img src="images-readme/sidemenu.png" alt="Example Image">
+<img src="images-readme/survey.png" alt="Example Image">
 </div>
 
 

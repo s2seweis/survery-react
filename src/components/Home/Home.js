@@ -14,46 +14,45 @@ const Home = () => {
   }
 
   const capitalizedString = capitalizeFirstLetter(role);
-  const greeting = `Welcome to my survey app, ${name}`;
-  const expression = `Current routes for, ${capitalizedString}:`;
+  const greeting = `Welcome to My Survey App, ${name}`;
+  const expression = `Current Routes for ${capitalizedString}:`;
+  const expression1 = 'Current Routes for User';
 
   return (
-    <div className="home-layer" style={{ position: 'absolute', width: '100%', marginTop: '' }}>
-      <h1>{greeting}</h1>
+    <div className="home-layer">
+      <h1 className="main-heading">{greeting}</h1>
 
       {userData.user === 'admin' ? (
         <div className="admin-container">
-          <h4 style={{ marginTop: '50px' }}>{expression}</h4>
-          <div className="admin-overview" style={{ display: 'grid', width: '300px', margin: 'auto' }}>
-            <hr />
-            <Link to="/admin">Admin</Link>
-            <Link to="/admin-addsurvey">Add Survey</Link>
-            <Link to="/admin/available-surveys">Edit Surveys Admin</Link>
-            <Link to="/overview-charts">Playground Charts.js</Link>
+          <h4 className="sub-heading">{expression}</h4>
+          <div className="overview-container">
+            <Link to="/admin" className="nav-link hover-effect">Admin</Link>
+            <Link to="/admin-addsurvey" className="nav-link hover-effect">Add Survey</Link>
+            <Link to="/admin/available-surveys" className="nav-link hover-effect">Edit Surveys Admin</Link>
+            <Link to="/overview-charts" className="nav-link hover-effect">Playground Charts.js</Link>
           </div>
-          <div className="user-overview" style={{ display: 'grid', width: '300px', margin: 'auto' }}>
-            <hr />
-            <Link to="/">Home</Link>
-            <Link to="/taken-surveys">Taken Surveys</Link>
-            <Link to="/available-surveys">Available Surveys User</Link>
-            <Link to="/help">Help</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/profile">Profile</Link>
+          <h4 className="sub-heading">{expression1}</h4>
+          <div className="overview-container">
+            <Link to="/" className="nav-link hover-effect">Home</Link>
+            <Link to="/taken-surveys" className="nav-link hover-effect">Taken Surveys</Link>
+            <Link to="/available-surveys" className="nav-link hover-effect">Available Surveys User</Link>
+            <Link to="/help" className="nav-link hover-effect">Help</Link>
+            <Link to="/register" className="nav-link hover-effect">Register</Link>
+            <Link to="/login" className="nav-link hover-effect">Login</Link>
+            <Link to="/profile" className="nav-link hover-effect">Profile</Link>
           </div>
         </div>
       ) : (
         <div className="user-container">
-          <h4 style={{ marginTop: '50px' }}>{expression}</h4>
-          <div className="user-overview" style={{ display: 'grid', width: '300px', margin: 'auto' }}>
-            <hr />
-            <Link to="/">Home</Link>
-            <Link to="/taken-surveys">Taken Surveys</Link>
-            <Link to="/available-surveys">Available Surveys User</Link>
-            <Link to="/help">Help</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/profile">Profile</Link>
+          <h4 className="sub-heading">{expression}</h4>
+          <div className="overview-container">
+            <Link to="/" className="nav-link hover-effect">Home</Link>
+            <Link to="/taken-surveys" className="nav-link hover-effect">Taken Surveys</Link>
+            <Link to="/available-surveys" className="nav-link hover-effect">Available Surveys User</Link>
+            <Link to="/help" className="nav-link hover-effect">Help</Link>
+            <Link to="/register" className="nav-link hover-effect">Register</Link>
+            <Link to="/login" className="nav-link hover-effect">Login</Link>
+            <Link to="/profile" className="nav-link hover-effect">Profile</Link>
           </div>
         </div>
       )}

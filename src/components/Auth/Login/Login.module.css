@@ -2,13 +2,27 @@
 
 .login-container {
     width: 300px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #ffffff;
+    height: fit-content;
+    z-index: 10;
+    margin-top: 0px;
+    margin-left: -200px;
+    margin-top: 100px;
+  }
+
+  @media (max-width: 700px) {
+    .login-container {
+      width: 300px;
+      /* margin: auto; */
+      margin-top: 200px;
+      margin-left: 0px;
+    }
   }
   
   .login-input {
@@ -44,6 +58,29 @@
 
   .login-main{
     /* background: url(https://img.freepik.com/premium-vector/seamless-pattern-abstract-background-with-futuristic-style-use-business-cover-banner_7505-1820.jpg) */
-
+    /* background: url(../../../assets/images/survey.png) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
+  @media (max-width: 700px) {
+    .login-main {
+      /* display: block; */
+      background-size: cover; /* Adjust background size for smaller screens */
+    }
+  }
+
+  .login-container-img{
+    /* position: absolute; */
+    margin-left: -20%;
+  }
+
+  @media (max-width: 700px) {
+    .login-container-img{
+      position: absolute;
+      margin-left: 0%;
+      width: 100%;
+      margin-top: -30%;
+    }
+  }
