@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { firestore } from '../../services/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 

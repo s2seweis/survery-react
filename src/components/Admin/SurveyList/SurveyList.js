@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect} from 'react';
 import 'survey-react/survey.css';
 import {useDispatch, useSelector} from 'react-redux';

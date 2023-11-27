@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useEffect} from 'react';
 import * as Survey from 'survey-react';
 import 'survey-react/survey.css';

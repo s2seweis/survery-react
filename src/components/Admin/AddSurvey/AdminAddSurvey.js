@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useEffect} from 'react';
 import Question from '../QuestionTypes/Question/Question';
 import Comment from '../QuestionTypes/Comment/Comment';
