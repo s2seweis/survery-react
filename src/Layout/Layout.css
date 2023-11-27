@@ -25,12 +25,12 @@ z .overlay2 {
 }
 
 .layout-content {
-  min-height: 100vh;
+  min-height: 88vh;
   position: relative;
 }
 
 @media (max-width: 620px) {
   .layout-content {
-    min-height: 136vh;
+    min-height: 125vh;
   }
 }
