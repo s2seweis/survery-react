@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Success from './components/Success/Success';
 import AdminAddSurvey from './components/Admin/AddSurvey/AdminAddSurvey';
-import Layout from './layout/Layout';
+import Layout from './Layout/Layout';
 import TakenSurveys from './components/Public/TakenSurveys/TakenSurvey';
 import AvailableSurveys
   from './components/Public/AvailableSurveys/AvailableSureys';
